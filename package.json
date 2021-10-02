@@ -1,7 +1,26 @@
 {
   "name": "react-typewriter-effect",
   "version": "0.1.0",
+  "main": "EDIT: path to main file",
+  "types": "index.d.ts",
+  "keywords": [
+    "typewriter",
+    "react typewriter",
+    "react typewriter effect",
+    "react",
+    "es6",
+    "typewriter effect",
+    "effect",
+    "animation",
+    "animation effect"
+  ],
   "private": true,
+  "files": [
+    "dist",
+    "index.d.ts",
+    "LICENSE",
+    "readme.md"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -39,5 +58,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/react-hooks": "^7.0.2"
   }
 }

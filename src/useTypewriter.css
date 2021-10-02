@@ -1,0 +1,15 @@
+.use-typewriter-cursor:after {
+  content: "";
+  border-right: 2px solid currentColor;
+  animation: blink 0.45s normal 0s infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
