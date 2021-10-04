@@ -1,5 +1,5 @@
 import React from "react";
-import BasicTypeWriter from "./examples/BasicTypeWriter";
+import BasicTypeWriter from "./examples/BasicTypewriter";
 
 function App() {
   return (

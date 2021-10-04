@@ -2,12 +2,13 @@ import * as React from "react";
 import { TypewriterConfig } from "./types";
 import useInterval from "./utils/useInterval";
 import "./useTypewriter.css";
+import { type } from "os";
 
 const DEFAULT_CURSOR_CLASSNAME = "use-typewriter-cursor";
 
 const CONFIGURATION_DEFAULTS: TypewriterConfig = {
   targetText: "",
-  startDelayMillis: 100,
+  autoStartDelay: 100,
   typingDelayMillis: 100,
   wrapperClassName: DEFAULT_CURSOR_CLASSNAME,
 };
@@ -37,14 +38,13 @@ export const useTypewriter = (
   }
 
   const [textValue, setTextValue] = React.useState("");
+  const [startTypewriter, setStartTypewriter] = React.useState(false);
 
-  const delayForNextKeypress = resolvedConfig.typingDelayMillis;
-
-  useInterval(() => {
+  const type = () => {
     /**
      * Every typingDelay milliseconds, add one character to the string until it is the targetText
      */
-    if (isPausedRef.current) {
+    if (isPausedRef.current || !startTypewriter) {
       return;
     }
 
@@ -55,55 +55,21 @@ export const useTypewriter = (
 
       if (nextTextValue !== resolvedConfig.targetText) {
       }
-
       return nextTextValue;
     });
-  }, delayForNextKeypress);
+  };
 
-  // React.useEffect(() => {
-  //   const styleElem = document.createElement("style");
+  React.useEffect(() => {
+    setTimeout(() => {
+      setStartTypewriter(true);
+    }, resolvedConfig.autoStartDelay);
+  }, [resolvedConfig.autoStartDelay]);
 
-  //   styleElem.innerHTML = `
-  //     .alissa {
-
-  //     }
-  //   `;
-
-  //   document.head.appendChild(styleElem);
-  // }, []);
+  useInterval(
+    type,
+    startTypewriter ? resolvedConfig.typingDelayMillis : null,
+    true
+  );
 
   return [textValue, pause, resolvedConfig.wrapperClassName];
 };
-
-// function getRandomNumberInRange(min: number, max: number) {
-//   return Math.random() * (max - min) + min;
-// }
-
-/**
- * Nice to have features,
- *
- * 1. As a consuemr of useTypewriter, I want to be able to pause and restart typing.
- */
-
-// function executor(x: number, fn: any) {
-//   return x + fn(x)
-// }
-
-// function foo(x: number) {
-//   return x
-// }
-
-// function bar(x: number) {
-//   return x / 2
-// }
-
-// executor(10, foo) // 20
-// executor(10, bar) // 15
-
-// function render(alissasSetStateFunction) {
-//   const nextState = alissasSetStateFunction(previousState)
-// }
-
-// executor(10, (x: number) => {
-//   return ()x + x) / x
-// })

@@ -7,15 +7,17 @@ export interface TypewriterConfig {
    */
   targetText: string;
   /**
-   *
+   * Amout of milliseconds delay at the start of the typewriter effect
    */
-  startDelayMillis: number;
+  autoStartDelay: number;
   /**
    * Amount of milliseconds delay beteen each char.
    * @default 200
    */
   typingDelayMillis: number;
-
+  /**
+   * Warpper classname, use for styling
+   */
   wrapperClassName: string;
   // /**
   //  * String value to use as the cursor
