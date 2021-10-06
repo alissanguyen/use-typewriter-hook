@@ -1,22 +1,13 @@
-import * as React from "react";
-import { useTypewriter } from "../useTypewriter";
-import "./custom.css";
+import * as React from 'react';
 
-interface Props {}
+interface Props {
 
-const BasicTypeWriter: React.FC<Props> = () => {
-  const [typedText, _, wrapperClassName] = useTypewriter({
-    targetText:
-      "Welcome to React Typewriter.Welcome to React Typewriter.Welcome to React Typewriter.Welcome to React Typewriter.",
-    autoStartDelay: 100,
-    typingDelayMillis: 5000,
-  });
+}
 
-  return (
-    <div>
-      <p className={wrapperClassName}>{typedText}</p>
-    </div>
-  );
-};
+const BasicTypewriter: React.FC<Props> = ({ }) => {
+ return (
+ <div>Hi</div>
+ )
+}
 
-export default BasicTypeWriter;
+export default BasicTypewriter

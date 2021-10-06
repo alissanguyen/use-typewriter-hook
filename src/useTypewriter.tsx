@@ -13,11 +13,11 @@ const CONFIGURATION_DEFAULTS: TypewriterConfig = {
   wrapperClassName: DEFAULT_CURSOR_CLASSNAME,
 };
 
-type UseTypewriterReturnValue = [string, () => void, string];
+
 
 export const useTypewriter = (
   config?: Partial<TypewriterConfig>
-): UseTypewriterReturnValue => {
+) => {
   /**
    * Use defaults, override defaults where ever the user set something in the config =)
    */
@@ -71,5 +71,10 @@ export const useTypewriter = (
     true
   );
 
-  return [textValue, pause, resolvedConfig.wrapperClassName];
+  return {
+    textValue, 
+    pause, 
+    wrapperClassName: resolvedConfig.wrapperClassName
+  };
 };
+

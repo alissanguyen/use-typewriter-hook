@@ -1,10 +1,10 @@
 import React from "react";
-import BasicTypeWriter from "./examples/BasicTypewriter";
+import CustomTypewriter from "./examples/CustomTypewriter";
 
 function App() {
   return (
     <div className="App">
-      <BasicTypeWriter />
+      <CustomTypewriter />
     </div>
   );
 }
