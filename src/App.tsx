@@ -3,6 +3,7 @@ import BasicTypewriter from "./examples/BasicTypewriter";
 import CustomCursorTypewriter from "./examples/CustomCursorTypewriter";
 import CustomTypewriter from "./examples/CustomTypewriter";
 import "./app.css";
+import TypewriterWithLoop from "./examples/TypewriterWithLoop";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
       </div>
       <div className="typewriter">
         <CustomCursorTypewriter />
+      </div>
+      <div className="typewriter">
+        <TypewriterWithLoop/>
       </div>
     </div>
   );

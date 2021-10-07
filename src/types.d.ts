@@ -16,6 +16,10 @@ export interface TypewriterConfig {
    * Warpper classname, use for styling
    */
   wrapperClassName: string;
+  /**
+   * Option to loop 
+   */
+  loop: boolean
   // /**
   //    * The delay between deleting each character.
   //    *

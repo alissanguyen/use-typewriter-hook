@@ -2,7 +2,6 @@ import * as React from "react";
 import { TypewriterConfig } from "./types";
 import useInterval from "./utils/useInterval";
 import "./useTypewriter.css";
-import { type } from "os";
 
 const DEFAULT_CURSOR_CLASSNAME = "use-typewriter-cursor";
 
@@ -11,11 +10,10 @@ const CONFIGURATION_DEFAULTS: TypewriterConfig = {
   autoStartDelay: 100,
   typingDelayMillis: 100,
   wrapperClassName: DEFAULT_CURSOR_CLASSNAME,
+  loop: false,
 };
 
-export const useTypewriter = (
-  config?: Partial<TypewriterConfig>
-) => {
+export const useTypewriter = (config?: Partial<TypewriterConfig>) => {
   /**
    * Use defaults, override defaults where ever the user set something in the config =)
    */
@@ -35,8 +33,31 @@ export const useTypewriter = (
     return;
   }
 
+  const [isGoingForward, setIsGoingForward] = React.useState(true);
+
   const [textValue, setTextValue] = React.useState("");
   const [startTypewriter, setStartTypewriter] = React.useState(false);
+
+  if (resolvedConfig.loop) {
+  }
+
+  const erase = () => {
+    /**
+     * Every typingDelay milliseconds, add one character to the string until it is the targetText
+     */
+    if (isPausedRef.current || !startTypewriter) {
+      return;
+    }
+
+    setTextValue((prev) => {
+      const stringWithoutLastCharacter = resolvedConfig.targetText.slice(
+        0,
+        prev.length - 1
+      );
+      conditionallySetIsGoingForward(stringWithoutLastCharacter);
+      return stringWithoutLastCharacter;
+    });
+  };
 
   const type = () => {
     /**
@@ -51,10 +72,17 @@ export const useTypewriter = (
 
       const nextTextValue = prev + nextCharacterToAdd;
 
-      if (nextTextValue !== resolvedConfig.targetText) {
-      }
+      conditionallySetIsGoingForward(nextTextValue);
       return nextTextValue;
     });
+  };
+
+  const conditionallySetIsGoingForward = (nextString: string) => {
+    if (nextString === resolvedConfig.targetText) {
+      setIsGoingForward(false);
+    } else if (nextString === "") {
+      setIsGoingForward(true);
+    }
   };
 
   React.useEffect(() => {
@@ -63,16 +91,23 @@ export const useTypewriter = (
     }, resolvedConfig.autoStartDelay);
   }, [resolvedConfig.autoStartDelay]);
 
+  const handleChange = () => {
+    if (isGoingForward) {
+      type();
+    } else if (resolvedConfig.loop) {
+      erase();
+    }
+  };
+
   useInterval(
-    type,
+    handleChange,
     startTypewriter ? resolvedConfig.typingDelayMillis : null,
     true
   );
 
   return {
-    textValue, 
-    pause, 
-    wrapperClassName: resolvedConfig.wrapperClassName
+    textValue,
+    pause,
+    wrapperClassName: resolvedConfig.wrapperClassName,
   };
 };
-
