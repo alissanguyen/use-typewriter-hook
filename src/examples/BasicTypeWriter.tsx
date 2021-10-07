@@ -1,12 +1,18 @@
 import * as React from 'react';
+import { useTypewriter } from '../useTypewriter';
+import "./custom.css"
 
-interface Props {
+const BasicTypewriter: React.FC= () => {
+  const targetText = "Welcome to React Typewriter. This is a basic typewriter."
+  const { textValue: typedText } =
+  useTypewriter({
+    targetText: targetText,
+    autoStartDelay: 0,
+    typingDelayMillis: 50,
+  });
 
-}
-
-const BasicTypewriter: React.FC<Props> = ({ }) => {
  return (
- <div>Hi</div>
+ <div className="basic-typewriter">{typedText}</div>
  )
 }
 

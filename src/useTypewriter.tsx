@@ -13,8 +13,6 @@ const CONFIGURATION_DEFAULTS: TypewriterConfig = {
   wrapperClassName: DEFAULT_CURSOR_CLASSNAME,
 };
 
-
-
 export const useTypewriter = (
   config?: Partial<TypewriterConfig>
 ) => {

@@ -2,7 +2,6 @@
 export interface TypewriterConfig {
   /**
    * text to type out
-   * @default null
    */
   targetText: string;
   /**
@@ -11,17 +10,12 @@ export interface TypewriterConfig {
   autoStartDelay: number;
   /**
    * Amount of milliseconds delay beteen each char.
-   * @default 200
    */
   typingDelayMillis: number;
   /**
    * Warpper classname, use for styling
    */
   wrapperClassName: string;
-  // /**
-  //  * String value to use as the cursor
-  //  */
-  // cursor?: string;
   // /**
   //    * The delay between deleting each character.
   //    *
