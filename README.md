@@ -229,7 +229,7 @@ function App() {
   );
 }
 ```
-
+<image src="https://imgur.com/a/iVpAbnW" alt="Typewriter with looping effect"/>
 ## CSS file for styling for four examples above
 
 ```css
