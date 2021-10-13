@@ -32,23 +32,13 @@ yarn add react-usetypewriter
 | wrapperClassName  | String             | 'use-typewriter-cursor' | Class name for the wrapper element.                                |
 | cursorClassName   | String             | 'use-typewriter-cursor' | Class name for the cursor element.                                 |
 
-## Methods
+## Methods (Functions)
 
 All methods can be chained together.
 
-| Name              | Params                                                                 | Description                                                                                                                          |
-| ----------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- |
-| <!--              | start                                                                  | -                                                                                                                                    | Start the typewriter effect. |
-| stop              | -                                                                      | Stop the typewriter effect.                                                                                                          | -->                          |
-| pause             | -                                                                      | Function to pause the typewriter effect.                                                                                             |
-| <!--              | pauseFor                                                               | `ms` Time to pause for in milliseconds                                                                                               | Pause for milliseconds       |
-| typeString        | `string` String to type out, it can contain HTML tags                  | Type out a string using the typewriter effect.                                                                                       |
-| pasteString       | `string` String to paste out, it can contain HTML tags                 | Paste out a string.                                                                                                                  |
-| deleteAll         | `speed` Speed to delete all visibles nodes, can be number or 'natural' | Delete everything that is visible inside of the typewriter wrapper element.                                                          |
-| deleteChars       | `amount` Number of characters                                          | Delete and amount of characters, starting at the end of the visible string.                                                          |
-| callFunction      | `cb` Callback, `thisArg` this Object to bind to the callback function  | Call a callback function. The first parameter to the callback `elements` which contains all DOM nodes used in the typewriter effect. |
-| changeDeleteSpeed | `speed` Number or 'natural'                                            | The speed at which to delete the characters, lower number is faster.                                                                 |
-| changeDelay       | `delay` Number or 'natural'                                            | Change the delay when typing out each character                                                                                      | -->                          |
+| Name  | Params | Description                             |
+| ----- | ------ | --------------------------------------- |
+| pause | -      | Pause the typewriter effect on calling. |
 
 ## Examples
 
@@ -77,7 +67,7 @@ function App() {
   return (
     <div className="App">
       <div className="typewriter">
-        <BasicTypewriter/>
+        <BasicTypewriter />
       </div>
     </div>
   );
@@ -128,31 +118,29 @@ function App() {
 ```jsx
 import * as React from "react";
 import { useTypewriter } from "../useTypewriter";
-import "./custom.css"
-
+import "./custom.css";
 
 const CustomTypewriter: React.FC = () => {
   const targetText =
     "Welcome to React Typewriter. This is a custom typewriter, you can highlight different words.";
 
-  const { textValue: typedText, wrapperClassName } =
-    useTypewriter({
-      targetText: targetText,
-      autoStartDelay: 0,
-      typingDelayMillis: 50,
-    });
+  const { textValue: typedText, wrapperClassName } = useTypewriter({
+    targetText: targetText,
+    autoStartDelay: 0,
+    typingDelayMillis: 50,
+  });
 
   /**
-   * You can select as many words or phrases as you like to highlight/customize their color/bold 
+   * You can select as many words or phrases as you like to highlight/customize their color/bold
    * Here as an example, we select one phrase and one word to customize
    */
   const stringToSearch = "React Typewriter";
-  const stringToSearch2 = "highlight"
+  const stringToSearch2 = "highlight";
 
   const startIndex1 = targetText.indexOf(stringToSearch);
   const endIndex1 = startIndex1 + stringToSearch.length;
   const startIndex2 = targetText.indexOf(stringToSearch2);
-  const endIndex2 = startIndex2 + stringToSearch2.length
+  const endIndex2 = startIndex2 + stringToSearch2.length;
 
   const fragments = splitTargetText(
     typedText,
@@ -164,7 +152,9 @@ const CustomTypewriter: React.FC = () => {
 
   return (
     <div>
-      <p className={wrapperClassName} id="custom-typewriter">{fragments}</p>
+      <p className={wrapperClassName} id="custom-typewriter">
+        {fragments}
+      </p>
     </div>
   );
 };
@@ -188,7 +178,7 @@ const splitTargetText = (
     </strong>,
     str.slice(endIndex1, startIndex2),
     <mark>{str.slice(startIndex2, endIndex2)}</mark>,
-    str.slice(endIndex2, str.length)
+    str.slice(endIndex2, str.length),
   ];
 };
 
@@ -203,7 +193,6 @@ function App() {
     </div>
   );
 }
-
 ```
 
 ### Typewriter with looping effect
@@ -211,12 +200,13 @@ function App() {
 ```jsx
 import * as React from "react";
 import { useTypewriter } from "../useTypewriter";
-import "./custom.css"
+import "./custom.css";
 
 interface Props {}
 
 const TypewriterWithLoop: React.FC<Props> = ({}) => {
-  const targetText = "Welcome to React Typewriter. This is a typewriter with looping effect.";
+  const targetText =
+    "Welcome to React Typewriter. This is a typewriter with looping effect.";
   const { textValue: typedText, wrapperClassName } = useTypewriter({
     targetText: targetText,
     autoStartDelay: 0,
@@ -237,10 +227,10 @@ function App() {
     </div>
   );
 }
-
 ```
 
 ## CSS file for styling for four examples above
+
 ```css
 /* BASIC TYPEWRITER */
 .basic-typewriter {
@@ -266,17 +256,15 @@ function App() {
 }
 
 .custom-cursor-typewriter {
-    font-family: "PT Mono", monospace;
-    font-weight: 500;
-    font-size: 2rem;
+  font-family: "PT Mono", monospace;
+  font-weight: 500;
+  font-size: 2rem;
 }
 
 /* TYPEWRITER WITH INFINITE LOOPING EFFECT */
 .use-typewriter-cursor {
-    font-family: "PT Mono", monospace;
-    font-weight: 500;
-    font-size: 2rem;
+  font-family: "PT Mono", monospace;
+  font-weight: 500;
+  font-size: 2rem;
 }
-
 ```
-
