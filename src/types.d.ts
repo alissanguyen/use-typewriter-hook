@@ -1,7 +1,7 @@
 
 export interface TypewriterConfig {
   /**
-   * text to type out
+   * Strings to type out when using this tool
    */
   targetText: string;
   /**
@@ -26,17 +26,5 @@ export interface TypewriterConfig {
   //    * @default "natural"
   //    */
   //  deleteSpeed?: Speed
-  //  /**
-  //   * Whether to keep looping or not.
-  //   *
-  //   * @default false
-  //   */
-  //  loop?: boolean
-  //  /**
-  //   * Whether to autostart typing strings or not. You are required to provide
-  //   * strings option.
-  //   *
-  //   * @default false
-  //   */
-  //  autoStart?: boolean
+
 }

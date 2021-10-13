@@ -5,7 +5,7 @@ import "./custom.css"
 
 const CustomCursorTypewriter: React.FC = ({}) => {
   const targetText =
-    "Welcome to React Typewriter. This is a typewriter with custom cursor.";
+    "Welcome to React Typewriter. This is a typewriter with custom cursor (color).";
   const { textValue: typedText, wrapperClassName } = useTypewriter({
     targetText: targetText,
     autoStartDelay: 0,

@@ -3,7 +3,7 @@ import { useTypewriter } from '../useTypewriter';
 import "./custom.css"
 
 const BasicTypewriter: React.FC= () => {
-  const targetText = "Welcome to React Typewriter. This is a basic typewriter."
+  const targetText = "Welcome to React Typewriter. This is a basic typewriter. You can also display emojis, like this 😜🤩🥳😍!"
   const { textValue: typedText } =
   useTypewriter({
     targetText: targetText,
