@@ -73,6 +73,7 @@ function App() {
   );
 }
 ```
+https://user-images.githubusercontent.com/69443738/137083086-da4e8123-7371-49c1-b856-07cf21f9854f.mp4
 
 ### Custom cursor typewriter
 
@@ -112,6 +113,8 @@ function App() {
   );
 }
 ```
+
+https://user-images.githubusercontent.com/69443738/137083003-7ee00bcc-7df3-4bd1-b482-b76adeec1ee5.mp4
 
 ### Custom typewriter with highlight and colored text
 
@@ -194,7 +197,8 @@ function App() {
   );
 }
 ```
-<!-- ![](customTypewriter.gif) -->
+
+https://user-images.githubusercontent.com/69443738/137082907-6c6c411d-e90a-482d-ab92-080764b02d5c.mp4
 
 ### Typewriter with looping effect
 
@@ -229,7 +233,9 @@ function App() {
   );
 }
 ```
-<image src="https://imgur.com/a/iVpAbnW" alt="Typewriter with looping effect"/>
+
+https://user-images.githubusercontent.com/69443738/137082838-19ebe1a7-efbd-483b-8e8b-484bb92dc8a6.mp4
+
 ## CSS file for styling for four examples above
 
 ```css
