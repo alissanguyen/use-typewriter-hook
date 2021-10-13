@@ -10,7 +10,6 @@ const CustomTypewriter: React.FC = () => {
   const { textValue: typedText, wrapperClassName } =
     useTypewriter({
       targetText: targetText,
-      autoStartDelay: 0,
       typingDelayMillis: 50,
     });
 

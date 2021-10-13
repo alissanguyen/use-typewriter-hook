@@ -8,7 +8,6 @@ const CustomCursorTypewriter: React.FC = ({}) => {
     "Welcome to React Typewriter. This is a typewriter with custom cursor (color).";
   const { textValue: typedText, wrapperClassName } = useTypewriter({
     targetText: targetText,
-    autoStartDelay: 0,
     typingDelayMillis: 50,
   });
   return (

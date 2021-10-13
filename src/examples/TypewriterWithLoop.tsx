@@ -5,10 +5,9 @@ import "./custom.css"
 interface Props {}
 
 const TypewriterWithLoop: React.FC<Props> = ({}) => {
-  const targetText = "Welcome to React Typewriter. This is a typewriter with looping effect.";
+  const targetText = "Welcome to React Typewriter. This is a typewriter with looping effect.     ";
   const { textValue: typedText, wrapperClassName } = useTypewriter({
     targetText: targetText,
-    autoStartDelay: 0,
     typingDelayMillis: 50,
     loop: true,
   });

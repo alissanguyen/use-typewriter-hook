@@ -9,16 +9,16 @@ function App() {
   return (
     <div className="App">
       <div className="typewriter">
-        <CustomTypewriter />
-      </div>
-      <div className="typewriter">
         <BasicTypewriter />
       </div>
       <div className="typewriter">
         <CustomCursorTypewriter />
       </div>
       <div className="typewriter">
-        <TypewriterWithLoop/>
+        <CustomTypewriter />
+      </div>
+      <div className="typewriter">
+        <TypewriterWithLoop />
       </div>
     </div>
   );

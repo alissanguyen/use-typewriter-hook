@@ -194,6 +194,7 @@ function App() {
   );
 }
 ```
+<!-- ![](customTypewriter.gif) -->
 
 ### Typewriter with looping effect
 

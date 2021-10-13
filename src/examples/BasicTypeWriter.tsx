@@ -7,7 +7,6 @@ const BasicTypewriter: React.FC= () => {
   const { textValue: typedText } =
   useTypewriter({
     targetText: targetText,
-    autoStartDelay: 0,
     typingDelayMillis: 50,
   });
 
