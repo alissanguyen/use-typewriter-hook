@@ -9,26 +9,10 @@ describe("useTypewriter", () => {
   test("it returns the correct value", () => {
     const hookResult = renderHook(() => useTypewriter({ targetText: "test" }));
 
-    expect(hookResult.result.all[0]).toMatchObject(["", expect.any(Function)]);
+    expect(hookResult.result.all[0]).toMatchObject({
+      textValue: expect.any(String),
+      pause: expect.any(Function),
+      wrapperClassName: expect.any(String),
+    });
   });
-
-  // test("it adds characters over time", () => {
-  //   const hookResult = renderHook(() =>
-  //     useTypewriter({ typingDelayMillis: 500, targetText: "test" })
-  //   );
-
-  //   expect(hookResult.result.all[1]).not.toMatchObject([
-  //     "t",
-  //     expect.any(Function),
-  //   ]);
-
-  //   jest.advanceTimersByTime(1000);
-  //   hookResult.rerender();
-  //   act(() => {
-  //     expect(hookResult.result.current).toMatchObject([
-  //       "t",
-  //       expect.any(Function),
-  //     ]);
-  //   });
-  // });
 });
