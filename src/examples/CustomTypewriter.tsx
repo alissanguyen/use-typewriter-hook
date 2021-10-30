@@ -4,7 +4,7 @@ import "./custom.css";
 
 const CustomTypewriter: React.FC = () => {
   const targetText =
-    "Welcome to React Typewriter. This is a custom typewriter, you can highlight different words.";
+    "Welcome to React useTypewriter. This is a custom typewriter, you can highlight different words.";
 
   const { textValue: typedText, wrapperClassName } = useTypewriter({
     targetText: targetText,
@@ -16,7 +16,7 @@ const CustomTypewriter: React.FC = () => {
    * You can select as many words or phrases as you like to highlight/customize their color/bold
    * Here as an example, we select one phrase and one word to customize
    */
-  const stringToSearch = "React Typewriter";
+  const stringToSearch = "React useTypewriter";
   const stringToSearch2 = "highlight";
 
   const startIndex1 = targetText.indexOf(stringToSearch);

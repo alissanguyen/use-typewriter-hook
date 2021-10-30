@@ -9,19 +9,19 @@ import PartialBackspaceTypewriter from "./examples/PartialBackspaceTypewriter";
 function App() {
   return (
     <div className="App">
-      <div className="typewriter">
+      <div className="typewriter typewriter-1">
         <PartialBackspaceTypewriter />
       </div>
-      <div className="typewriter">
+      <div className="typewriter typewriter-2">
         <BasicTypewriter />
       </div>
-      <div className="typewriter">
+      <div className="typewriter typewriter-3">
         <CustomCursorTypewriter />
       </div>
-      <div className="typewriter">
+      <div className="typewriter typewriter-4">
         <CustomTypewriter />
       </div>
-      <div className="typewriter">
+      <div className="typewriter typewriter-5">
         <TypewriterWithLoop />
       </div>
     </div>
