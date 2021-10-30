@@ -1,9 +1,8 @@
-
 export interface TypewriterConfig {
   /**
    * Strings to type out when using this tool
    */
-  targetText: string;
+  targetText: string | string[];
   /**
    * Amout of milliseconds delay at the start of the typewriter effect
    */
@@ -17,14 +16,13 @@ export interface TypewriterConfig {
    */
   wrapperClassName: string;
   /**
-   * Option to loop 
+   * Option to loop
    */
-  loop: boolean
+  loop: boolean;
   // /**
   //    * The delay between deleting each character.
   //    *
   //    * @default "natural"
   //    */
   //  deleteSpeed?: Speed
-
 }

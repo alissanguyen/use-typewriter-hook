@@ -1,29 +1,28 @@
 import * as React from "react";
 import { useTypewriter } from "../useTypewriter";
-import "./custom.css"
-
+import "./custom.css";
 
 const CustomTypewriter: React.FC = () => {
   const targetText =
     "Welcome to React Typewriter. This is a custom typewriter, you can highlight different words.";
 
-  const { textValue: typedText, wrapperClassName } =
-    useTypewriter({
-      targetText: targetText,
-      typingDelayMillis: 50,
-    });
+  const { textValue: typedText, wrapperClassName } = useTypewriter({
+    targetText: targetText,
+    typingDelayMillis: 50,
+    loop: process.env.NODE_ENV === "development",
+  });
 
   /**
-   * You can select as many words or phrases as you like to highlight/customize their color/bold 
+   * You can select as many words or phrases as you like to highlight/customize their color/bold
    * Here as an example, we select one phrase and one word to customize
    */
   const stringToSearch = "React Typewriter";
-  const stringToSearch2 = "highlight"
+  const stringToSearch2 = "highlight";
 
   const startIndex1 = targetText.indexOf(stringToSearch);
   const endIndex1 = startIndex1 + stringToSearch.length;
   const startIndex2 = targetText.indexOf(stringToSearch2);
-  const endIndex2 = startIndex2 + stringToSearch2.length
+  const endIndex2 = startIndex2 + stringToSearch2.length;
 
   const fragments = splitTargetText(
     typedText,
@@ -35,7 +34,9 @@ const CustomTypewriter: React.FC = () => {
 
   return (
     <div>
-      <p className={wrapperClassName} id="custom-typewriter">{fragments}</p>
+      <p className={wrapperClassName} id="custom-typewriter">
+        {fragments}
+      </p>
     </div>
   );
 };
@@ -59,7 +60,7 @@ const splitTargetText = (
     </strong>,
     str.slice(endIndex1, startIndex2),
     <mark>{str.slice(startIndex2, endIndex2)}</mark>,
-    str.slice(endIndex2, str.length)
+    str.slice(endIndex2, str.length),
   ];
 };
 

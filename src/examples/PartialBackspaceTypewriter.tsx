@@ -1,18 +1,20 @@
 import * as React from "react";
 import { useTypewriter } from "../useTypewriter";
-import "./custom.css";
 
 interface Props {}
 
-const TypewriterWithLoop: React.FC<Props> = ({}) => {
-  const targetText =
-    "Welcome to React Typewriter. This is a typewriter with looping effect.";
+const PartialBackspaceTypewriter: React.FC<Props> = ({}) => {
+  const targetText = [
+    "Hi, I'm Alissa. I'm a programmer.",
+    "Hi, I'm Alissa. I'm an artist.",
+    "Hi, I'm Alissa. I'm a wife.",
+  ];
   const { textValue: typedText, wrapperClassName } = useTypewriter({
     targetText: targetText,
-    typingDelayMillis: 50,
+    typingDelayMillis: 100,
     loop: true,
   });
   return <div className={wrapperClassName}>{typedText}</div>;
 };
 
-export default TypewriterWithLoop;
+export default PartialBackspaceTypewriter;

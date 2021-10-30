@@ -1,6 +1,5 @@
 /* BASIC TYPEWRITER */
 .basic-typewriter {
-  font-family: "PT Mono", monospace;
   font-weight: 500;
   font-size: 2rem;
 }
@@ -11,7 +10,6 @@
 }
 
 #custom-typewriter {
-  font-family: "PT Mono", monospace;
   font-weight: 500;
   font-size: 2rem;
 }
@@ -22,14 +20,12 @@
 }
 
 .custom-cursor-typewriter {
-    font-family: "PT Mono", monospace;
-    font-weight: 500;
-    font-size: 2rem;
+  font-weight: 500;
+  font-size: 2rem;
 }
 
 /* TYPEWRITER WITH INFINITE LOOPING EFFECT */
 .use-typewriter-cursor {
-    font-family: "PT Mono", monospace;
-    font-weight: 500;
-    font-size: 2rem;
+  font-weight: 500;
+  font-size: 2rem;
 }

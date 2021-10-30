@@ -1,9 +1,10 @@
 body {
-    margin: 20%;
+  margin: 20%;
+  font-family: "PT Mono", monospace;
 }
 
 .typewriter {
-    margin-top: 10%;
-    margin-bottom: 10%;
-    padding-bottom: 15%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  padding-bottom: 15%;
 }
