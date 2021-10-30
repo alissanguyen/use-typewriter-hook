@@ -12,7 +12,7 @@ const PartialBackspaceTypewriter: React.FC<Props> = ({}) => {
   const { textValue: typedText, wrapperClassName } = useTypewriter({
     targetText: targetText,
     typingDelayMillis: 100,
-    loop: true,
+    loop: false,
   });
   return <div className={wrapperClassName}>{typedText}</div>;
 };

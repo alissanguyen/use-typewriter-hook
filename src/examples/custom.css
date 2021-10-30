@@ -3,6 +3,11 @@
   font-weight: 500;
   font-size: 2rem;
 }
+.pause-button {
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+}
 
 /* CUSTOM TYPEWRITER WITH BOLD, COLOR, AND HIGHLIGHT */
 .custom-typewriter-text {

@@ -10,7 +10,6 @@ const TypewriterWithLoop: React.FC<Props> = ({}) => {
   const { textValue: typedText, wrapperClassName } = useTypewriter({
     targetText: targetText,
     typingDelayMillis: 50,
-    loop: true,
   });
   return <div className={wrapperClassName}>{typedText}</div>;
 };
