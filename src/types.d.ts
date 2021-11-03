@@ -19,10 +19,8 @@ export interface TypewriterConfig {
    * Option to loop
    */
   loop: boolean;
-  // /**
-  //    * The delay between deleting each character.
-  //    *
-  //    * @default "natural"
-  //    */
-  //  deleteSpeed?: Speed
+  /**
+   * The duration between each loop if `loop` option is true
+   */
+  loopDelay: number;
 }

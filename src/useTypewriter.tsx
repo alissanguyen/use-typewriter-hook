@@ -12,6 +12,7 @@ const CONFIGURATION_DEFAULTS: TypewriterConfig = {
   typingDelayMillis: 100,
   wrapperClassName: DEFAULT_CURSOR_CLASSNAME,
   loop: false,
+  loopDelay: 100,
 };
 
 enum TypingDirection {
@@ -58,7 +59,16 @@ export const useTypewriter = (config?: Partial<TypewriterConfig>) => {
       prevDirection === TypingDirection.FORWARD
         ? TypingDirection.BACKWARD
         : TypingDirection.FORWARD;
-    // If the next direction is backward, check if we should go backward
+    /**
+     * If the next direction is backward, check if we should go backward:
+     *   a. If the user only gives one sentence and chooses not to loop,
+     *      then we should not go backward.
+     *   b. If the user gives an array (>1) of sentences and chooses not to
+     *      loop, then we should not go backward if we are at the last sentence
+     *      (last element in the sentences array).
+     *   c. If the user chooses to loop, then no matter the amount of sentences,
+     *      we always go backward after done typing any sentences.
+     */
     if (nextDirection === TypingDirection.BACKWARD) {
       // If the user wants to loop, we return the next direction
       if (loop) {
@@ -192,14 +202,16 @@ export const useTypewriter = (config?: Partial<TypewriterConfig>) => {
       targetTextRef.current = targetTextArray[sentencePointer];
     }
 
-    setTypingDirection((prevDirection) => {
-      return returnNextDirection(
-        prevDirection,
-        targetTextArray,
-        resolvedConfig.loop,
-        sentencePointer
-      );
-    });
+    setTimeout(() => {
+      setTypingDirection((prevDirection) => {
+        return returnNextDirection(
+          prevDirection,
+          targetTextArray,
+          resolvedConfig.loop,
+          sentencePointer
+        );
+      });
+    }, resolvedConfig.loopDelay);
   }, [textValue]);
 
   useInterval(

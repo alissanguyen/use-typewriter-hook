@@ -9,7 +9,7 @@ const CustomTypewriter: React.FC = () => {
   const { textValue: typedText, wrapperClassName } = useTypewriter({
     targetText: targetText,
     typingDelayMillis: 50,
-    loop: process.env.NODE_ENV === "development",
+    loop: false,
   });
 
   /**
