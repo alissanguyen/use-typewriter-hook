@@ -29,6 +29,7 @@ yarn add react-usetypewriter
 | typingDelayMillis | Number             | 100ms                   | The delay between each key when typing.                            |
 | deleteSpeed       | Number             | 100ms                   | The delay between deleting each character.                         |
 | loop              | Boolean            | false                   | Option to keep looping the targetText after finish.                |
+| loopDelay         | Number             | 100                     | The delay between each loop (milliseconds).                        |
 | wrapperClassName  | String             | 'use-typewriter-cursor' | Class name for the wrapper element.                                |
 | cursorClassName   | String             | 'use-typewriter-cursor' | Class name for the cursor element.                                 |
 
@@ -73,6 +74,7 @@ function App() {
   );
 }
 ```
+
 https://user-images.githubusercontent.com/69443738/137083086-da4e8123-7371-49c1-b856-07cf21f9854f.mp4
 
 ### Custom cursor typewriter
