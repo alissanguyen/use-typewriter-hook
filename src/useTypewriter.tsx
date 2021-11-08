@@ -27,6 +27,29 @@ export const useTypewriter = (config?: Partial<TypewriterConfig>) => {
     ...config,
   };
 
+  /**
+   * The typing direction: forward or backward
+   */
+  const [typingDirection, setTypingDirection] = React.useState<TypingDirection>(
+    TypingDirection.FORWARD
+  );
+
+  /**
+   * We are going to have an array of text values
+   * and we are going to have a pointer to which index in that array we want to show currently
+   */
+  const [sentencePointer, setSentencePointer] = React.useState<number>(0);
+
+  /**
+   * The text/string we typed out so far
+   */
+  const [textValue, setTextValue] = React.useState("");
+
+  /**
+   * Start the typewriter effect
+   */
+  const [startTypewriter, setStartTypewriter] = React.useState(false);
+
   // Check if users give an array of sentences (strings) or one sentence (string).
   const targetTextArray = Array.isArray(resolvedConfig.targetText)
     ? resolvedConfig.targetText
@@ -42,6 +65,8 @@ export const useTypewriter = (config?: Partial<TypewriterConfig>) => {
     isPausedRef.current = true;
   }
 
+  /** */
+  function start() {}
   /**
    * Function to check if needed to pause the typewriter effect
    * @param stringVal
@@ -82,31 +107,6 @@ export const useTypewriter = (config?: Partial<TypewriterConfig>) => {
     }
     return nextDirection;
   };
-  /**
-   * The typing direction: forward or backward
-   */
-  const [typingDirection, setTypingDirection] = React.useState<TypingDirection>(
-    TypingDirection.FORWARD
-  );
-
-  /**
-   * We are going to have an array of text values
-   * and we are going to have a pointer to which index in that array we want to show currently
-   *
-   * useTypeWriter(["Hi I'm alissa, I'm a painter", "Hi I'm alissa, I'm a writer"])
-   *
-   */
-  const [sentencePointer, setSentencePointer] = React.useState<number>(0);
-
-  /**
-   * The text/string we typed out so far
-   */
-  const [textValue, setTextValue] = React.useState("");
-
-  /**
-   * Start the typewriter effect
-   */
-  const [startTypewriter, setStartTypewriter] = React.useState(false);
 
   const targetTextRef = React.useRef(targetTextArray[sentencePointer]);
 
