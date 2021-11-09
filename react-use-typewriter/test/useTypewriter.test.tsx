@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react-hooks";
-import { useTypewriter } from "../";
+import { useTypewriter } from "../src";
 
 describe("useTypewriter", () => {
   beforeEach(() => {

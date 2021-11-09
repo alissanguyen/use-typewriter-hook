@@ -1,10 +1,12 @@
 {
-  "name": "react-use-typewriter",
+  "name": "use-typewriter-hook",
   "version": "1.0.0",
-  "description": "A simple and flexible react tool for typewriter effect.",
-  "main": "index.ts",
+  "description": "A flexible hook for creating typewriter-like experience with React.",
+  "main": "./src/index.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc --project tsconfig.production.json",
+    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "repository": {
     "type": "git",
@@ -30,7 +32,13 @@
     "@types/jest": "^27.0.2",
     "@types/node": "^16.11.7",
     "@types/react": "^17.0.34",
+    "@typescript-eslint/eslint-plugin": "^5.3.1",
+    "@typescript-eslint/parser": "^5.3.1",
+    "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^25.2.4",
     "jest": "^27.3.1",
+    "prettier": "^2.4.1",
     "react": "^17.0.2",
     "ts-jest": "^27.0.7",
     "typescript": "^4.4.4"

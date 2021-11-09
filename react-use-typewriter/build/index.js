@@ -11,7 +11,7 @@ const CONFIGURATION_DEFAULTS = {
 var TypingDirection;
 (function (TypingDirection) {
     TypingDirection["FORWARD"] = "FORWARD";
-    TypingDirection["BACKWARD"] = "nBACKWARD";
+    TypingDirection["BACKWARD"] = "BACKWARD";
 })(TypingDirection || (TypingDirection = {}));
 export const useTypewriter = (config) => {
     const resolvedConfig = Object.assign(Object.assign({}, CONFIGURATION_DEFAULTS), config);
@@ -26,7 +26,9 @@ export const useTypewriter = (config) => {
     function pause() {
         isPausedRef.current = true;
     }
-    function start() { }
+    function start() {
+        isPausedRef.current = false;
+    }
     const returnNextDirection = (prevDirection, targetString, loop, pointer) => {
         const nextDirection = prevDirection === TypingDirection.FORWARD
             ? TypingDirection.BACKWARD
@@ -106,6 +108,7 @@ export const useTypewriter = (config) => {
     return {
         textValue,
         pause,
+        start,
         wrapperClassName: resolvedConfig.wrapperClassName,
     };
 };

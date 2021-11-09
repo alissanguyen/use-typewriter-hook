@@ -37,11 +37,10 @@ yarn add react-usetypewriter
 
 All methods can be chained together.
 
-| Name     | Params                                 | Description                                                   |
-| -------- | -------------------------------------- | ------------------------------------------------------------- |
-| pause    | -                                      | Pause the typewriter effect on calling.                       |
-| start    | -                                      | Start the typewriter effect.                                  |
-| pauseFor | `ms` Time in milliseconds to pause for | Pause the typewriter effect on calling for `ms` milliseconds. |
+| Name  | Params | Description                             |
+| ----- | ------ | --------------------------------------- |
+| pause | -      | Pause the typewriter effect on calling. |
+| start | -      | Start the typewriter effect.            |
 
 ## Examples
 

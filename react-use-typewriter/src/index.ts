@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TypewriterConfig } from "./types";
+import { TypewriterConfig } from "../types";
 
 const DEFAULT_CURSOR_CLASSNAME = "use-typewriter-cursor";
 
@@ -244,7 +244,7 @@ const calculateNextSentencePointer = (
 function useInterval(
   callback: () => void,
   delayMillis: number | null,
-  callImmediately: boolean = false
+  callImmediately = false
 ) {
   const savedCallback = React.useRef(callback);
 
