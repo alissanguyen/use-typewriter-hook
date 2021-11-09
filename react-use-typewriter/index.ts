@@ -62,8 +62,12 @@ export const useTypewriter = (config?: Partial<TypewriterConfig>) => {
     isPausedRef.current = true;
   }
 
-  /** */
-  function start() {}
+  /**
+   * Util function, used to start the typewriter effect
+   */
+  function start() {
+    isPausedRef.current = false;
+  }
   /**
    * Function to check if needed to pause the typewriter effect
    * @param stringVal
@@ -219,6 +223,7 @@ export const useTypewriter = (config?: Partial<TypewriterConfig>) => {
   return {
     textValue,
     pause,
+    start,
     wrapperClassName: resolvedConfig.wrapperClassName,
   };
 };
