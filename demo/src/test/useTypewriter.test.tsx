@@ -10,7 +10,7 @@ describe("useTypewriter", () => {
     const hookResult = renderHook(() => useTypewriter({ targetText: "test" }));
 
     expect(hookResult.result.all[0]).toMatchObject({
-      textValue: expect.any(String),
+      textValue: "",
       pause: expect.any(Function),
       wrapperClassName: expect.any(String),
     });

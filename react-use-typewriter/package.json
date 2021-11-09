@@ -1,0 +1,39 @@
+{
+  "name": "react-use-typewriter",
+  "version": "1.0.0",
+  "description": "A simple and flexible react tool for typewriter effect.",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/alissanguyen/react-use-typewriter.git"
+  },
+  "peerDependencies": {
+    "react": "^15.3.0 || 16 || 17",
+    "react-dom": "^15.3.0 || 16 || 17"
+},
+  "keywords": [
+    "react",
+    "js",
+    "hook",
+    "javascript",
+    "hooks",
+    "typewriter",
+    "type",
+    "typing-effect",
+    "typewriterjs"
+  ],
+  "devDependencies": {
+    "jest": "^27.3.1",
+    "react": "^17.0.2",
+    "typescript": "^4.4.4"
+  },
+  "author": "alissanguyen (Tam Nguyen)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alissanguyen/react-use-typewriter/issues"
+  },
+  "homepage": "https://github.com/alissanguyen/react-use-typewriter"
+}
