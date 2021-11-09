@@ -6,13 +6,10 @@ import "./app.css";
 import TypewriterWithLoop from "./examples/TypewriterWithLoop";
 import PartialBackspaceTypewriter from "./examples/PartialBackspaceTypewriter";
 import "./blink-cursor-demo.css";
-import { useTypewriter } from "use-typewriter-hook";
 function App() {
-  const {} = useTypewriter();
-
   return (
     <div className="App">
-      {/* <div className="typewriter typewriter-1">
+      <div className="typewriter typewriter-1">
         <PartialBackspaceTypewriter />
       </div>
       <div className="typewriter typewriter-2">
@@ -26,7 +23,7 @@ function App() {
       </div>
       <div className="typewriter typewriter-5">
         <TypewriterWithLoop />
-      </div> */}
+      </div>
     </div>
   );
 }
