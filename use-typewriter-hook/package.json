@@ -2,7 +2,8 @@
   "name": "use-typewriter-hook",
   "version": "1.0.0",
   "description": "A flexible hook for creating typewriter-like experience with React.",
-  "main": "./src/index.ts",
+  "main": "./build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
     "test": "jest",
     "build": "tsc --project tsconfig.production.json",

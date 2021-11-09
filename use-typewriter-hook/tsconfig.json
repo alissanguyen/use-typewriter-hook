@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "ES5",
     "types": ["jest", "node"],
     "lib": [
       "dom",
@@ -8,6 +8,10 @@
       "ES2015.Iterable",
       "esnext"
     ],
+    "baseUrl": ".",
+    "paths": {
+      "use-typewriter-hook": ["src"]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,9 +22,8 @@
     "downlevelIteration": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
+    "typeRoots": ["src/@types", "node_modules/@types"],
   },
   "include": [
     "src/index.ts",

@@ -8,6 +8,7 @@
         "ES2015.Iterable",
         "esnext"
       ],
+      "declaration": true,
       "allowJs": true,
       "skipLibCheck": true,
       "esModuleInterop": true,
@@ -23,6 +24,7 @@
       "isolatedModules": true,
       "jsx": "react-jsx",
       "outDir": "build",
+      "typeRoots": ["src/@types", "node_modules/@types"],
     },
     "include": [
       "src/index.ts",
