@@ -5,7 +5,7 @@ import CustomTypewriter from "./examples/CustomTypewriter";
 import "./app.css";
 import TypewriterWithLoop from "./examples/TypewriterWithLoop";
 import PartialBackspaceTypewriter from "./examples/PartialBackspaceTypewriter";
-
+import "./blink-cursor-demo.css";
 function App() {
   return (
     <div className="App">

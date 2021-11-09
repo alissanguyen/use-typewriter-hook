@@ -1,4 +1,4 @@
-import { findCommonSubstring } from "./string-utils";
+import { findCommonSubstring } from "../index";
 
 describe("string-utils", () => {
   describe("findCommonSubstring", () => {

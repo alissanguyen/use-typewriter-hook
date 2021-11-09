@@ -1,6 +1,5 @@
 import * as React from "react";
 import { TypewriterConfig } from "./types";
-import "./useTypewriter.css";
 
 const DEFAULT_CURSOR_CLASSNAME = "use-typewriter-cursor";
 
@@ -266,7 +265,7 @@ function useInterval(
   }, [delayMillis, callImmediately]);
 }
 
-function findCommonSubstring(string1: string, string2: string): string {
+export function findCommonSubstring(string1: string, string2: string): string {
   const str1 = [...string1];
   const str2 = [...string2];
   let commonSubstring = "";
