@@ -9,7 +9,9 @@ import TypewriterWithLoop from "../components/examples/TypewriterWithLoop";
 import PartialBackspaceTypewriter from "../components/examples/PartialBackspaceTypewriter";
 
 const Home: NextPage = () => {
-  
+  if (typeof window === "undefined") {
+    return null;
+  }
 
   return (
     <div className={styles.container}>

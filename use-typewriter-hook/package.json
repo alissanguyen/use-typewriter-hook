@@ -1,13 +1,14 @@
 {
   "name": "use-typewriter-hook",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A flexible hook for creating typewriter-like experience with React.",
   "main": "./build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
     "test": "jest",
     "build": "tsc --project tsconfig.production.json",
-    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "do-publish": "npm run build && cp package.production.json ./build/package.json && cd build && npm publish"
   },
   "repository": {
     "type": "git",
