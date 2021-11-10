@@ -14,6 +14,8 @@ var TypingDirection;
     TypingDirection["BACKWARD"] = "BACKWARD";
 })(TypingDirection || (TypingDirection = {}));
 export const useTypewriter = (config) => {
+    
+
     const resolvedConfig = Object.assign(Object.assign({}, CONFIGURATION_DEFAULTS), config);
     debugger;
     const [typingDirection, setTypingDirection] = React.useState(TypingDirection.FORWARD);

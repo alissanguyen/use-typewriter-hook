@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useTypewriter } from "use-typewriter-hook";
-import "./custom.css";
+// import customTypewriterStyles from "../../styles/CustomTypewriterStyles.module.css";
 
 const CustomCursorTypewriter: React.FC = ({}) => {
   const targetText =
@@ -11,10 +11,7 @@ const CustomCursorTypewriter: React.FC = ({}) => {
   });
   return (
     //   Have to compose classNames to get all the css rules
-    <div
-      className={`${wrapperClassName} custom-cursor-typewriter`}
-      id="custom-cursor-typewriter"
-    >
+    <div className={`${wrapperClassName} `} id="custom-cursor-typewriter">
       {typedText}
     </div>
   );

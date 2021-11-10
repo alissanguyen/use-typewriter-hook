@@ -1,7 +1,5 @@
 import * as React from "react";
 import { useTypewriter } from "use-typewriter-hook";
-import "./custom.css";
-
 
 const BasicTypewriter: React.FC = () => {
   const targetText =

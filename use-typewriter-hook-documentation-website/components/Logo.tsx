@@ -1,19 +1,20 @@
 import * as React from "react";
 import { useTypewriter } from "use-typewriter-hook";
-import "./custom.css";
+import "./website.css";
 
 interface Props {}
 
-const TypewriterWithLoop: React.FC<Props> = ({}) => {
+const Logo: React.FC<Props> = ({}) => {
   const targetText =
-    "Welcome to React useTypewriter. This is a typewriter with looping effect.";
+    "useTypewriter";
   const { textValue: typedText, wrapperClassName } = useTypewriter({
     targetText: targetText,
+    autoStartDelay: 100,
     typingDelayMillis: 50,
     loopDelay: 500,
     loop: true,
   });
-  return <div className={wrapperClassName}>{typedText}</div>;
+  return <div className={`${wrapperClassName} logo`}>{typedText}</div>;
 };
 
-export default TypewriterWithLoop;
+export default Logo;
