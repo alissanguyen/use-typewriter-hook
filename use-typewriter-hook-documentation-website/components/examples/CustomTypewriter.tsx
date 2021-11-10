@@ -23,7 +23,7 @@ const CustomTypewriter: React.FC = () => {
   const startIndex2 = targetText.indexOf(stringToSearch2);
   const endIndex2 = startIndex2 + stringToSearch2.length;
 
-  const fragments = splitTargetText(
+  const fragments = createBoldAndHighlightedReactNodes(
     typedText,
     startIndex1,
     endIndex1,
@@ -40,13 +40,15 @@ const CustomTypewriter: React.FC = () => {
   );
 };
 
-const splitTargetText = (
+const createBoldAndHighlightedReactNodes = (
   str: string,
   startIndex1: number,
   endIndex1: number,
   startIndex2: number,
   endIndex2: number
 ): React.ReactNode[] => {
+  const boldContents = str.slice(startIndex1, endIndex1);
+  const highlightedContents = str.slice(startIndex2, endIndex2);
   /**
    * Return everything from 0...startIndex of str as a string,
    * return evevertying from startindex to endindex as a bolded span
@@ -54,11 +56,11 @@ const splitTargetText = (
    */
   return [
     str.slice(0, startIndex1),
-    <strong className="custom-typewriter-text">
-      {str.slice(startIndex1, endIndex1)}
+    <strong key={0} className="custom-typewriter-text">
+      {boldContents}
     </strong>,
     str.slice(endIndex1, startIndex2),
-    <mark>{str.slice(startIndex2, endIndex2)}</mark>,
+    <mark key={1}>{highlightedContents}</mark>,
     str.slice(endIndex2, str.length),
   ];
 };
