@@ -1,20 +1,18 @@
 import * as React from "react";
 import { useTypewriter } from "use-typewriter-hook";
 
-
 interface Props {}
 
-const Logo: React.FC<Props> = ({}) => {
-  const targetText =
-    "useTypewriter";
+const Author: React.FC<Props> = ({}) => {
+  const targetText = "From Alissa Nguyen with love. :)";
   const { textValue: typedText, wrapperClassName } = useTypewriter({
     targetText: targetText,
     autoStartDelay: 100,
-    typingDelayMillis: 50,
-    loopDelay: 500,
+    typingDelayMillis: 100,
+    loopDelay: 600,
     loop: true,
   });
-  return <div className={`${wrapperClassName} logo`}>{typedText}</div>;
+  return <div className={`${wrapperClassName} author`}>{typedText}</div>;
 };
 
-export default Logo;
+export default Author;
