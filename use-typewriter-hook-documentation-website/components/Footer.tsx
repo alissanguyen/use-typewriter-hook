@@ -14,6 +14,7 @@ const Footer: React.FC<Props> = ({}) => {
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
+          rel="noreferrer"
         >
           Powered by{" "}
           <span className={styles.logo}>
@@ -28,12 +29,17 @@ const Footer: React.FC<Props> = ({}) => {
         <a
           href="https://github.com/alissanguyen/react-use-typewriter"
           target="_blank"
+          rel="noreferrer"
         >
           <span className={styles.logo}>
             <Image src={GitHubLogo} alt="Github Logo" width={20} height={20} />
           </span>
         </a>
-        <a href="https://www.linkedin.com/in/tam-pmnguyen/" target="_blank">
+        <a
+          href="https://www.linkedin.com/in/tam-pmnguyen/"
+          target="_blank"
+          rel="noreferrer"
+        >
           <span className={styles.logo}>
             <Image
               src={LinkedInLogo}
