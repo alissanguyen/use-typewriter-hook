@@ -1,0 +1,40 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  padding: 1.5rem 0;
+  border-top: 1px solid #eaeaea;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-name {
+  font-size: 2rem;
+  display: block;
+  text-align: center;
+  margin-top: 30%;
+}
+
+.documentation-button {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  margin-bottom: 30%;
+  padding: 0 3.5rem;
+  height: 2.81rem;
+  line-height: 2.8rem;
+  border-radius: 7px;
+  background-color: #0070f3;
+  box-shadow: 0 4px 14px 0 rgb(0 118 255 / 39%);
+  color: white;
+  font-size: 16px;
+  border: none;
+  margin-left: 42%;
+  font-weight: 300;
+}
+.documentation-button:hover {
+  background-color: #3291ff;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+.documentation-button:active {
+  background-color: #0761d1;
+}

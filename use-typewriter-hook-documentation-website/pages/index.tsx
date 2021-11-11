@@ -9,6 +9,7 @@ import TypewriterWithLoop from "../components/examples/TypewriterWithLoop";
 import PartialBackspaceTypewriter from "../components/examples/PartialBackspaceTypewriter";
 import Footer from "../components/Footer";
 import Logo from "../components/Logo";
+import Link from "../components/Link";
 
 const Home: NextPage = () => {
   if (typeof window === "undefined") {
@@ -22,8 +23,12 @@ const Home: NextPage = () => {
         <meta name="useTypewriter" content="Document on how to get started" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className="app-name-wrapper"></div>
       <Logo />
-      <main className={styles.main}>
+      <Link to="/api/documentation">
+        <button className="documentation-button">View Documentation</button>
+      </Link>
+      {/* <main className={styles.main}>
         <div className="typewriter typewriter-1">
           <PartialBackspaceTypewriter />
         </div>
@@ -39,7 +44,7 @@ const Home: NextPage = () => {
         <div className="typewriter typewriter-5">
           <TypewriterWithLoop />
         </div>
-      </main>
+      </main> */}
 
       <Footer />
     </div>
