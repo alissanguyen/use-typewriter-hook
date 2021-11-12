@@ -27,11 +27,9 @@ yarn add react-usetypewriter
 | targetText        | String or String[] | "" (empty string)       | Strings to type out when using this tool.                          |
 | autoStartDelay    | Number             | 100ms                   | Amout of milliseconds delay at the start of the typewriter effect. |
 | typingDelayMillis | Number             | 100ms                   | The delay between each key when typing.                            |
-| deleteSpeed       | Number             | 100ms                   | The delay between deleting each character.                         |
 | loop              | Boolean            | false                   | Option to keep looping the targetText after finish.                |
 | loopDelay         | Number             | 100                     | The delay between each loop (milliseconds).                        |
 | wrapperClassName  | String             | 'use-typewriter-cursor' | Class name for the wrapper element.                                |
-| cursorClassName   | String             | 'use-typewriter-cursor' | Class name for the cursor element.                                 |
 
 ## Methods (Functions)
 

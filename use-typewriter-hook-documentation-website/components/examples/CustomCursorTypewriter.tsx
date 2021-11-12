@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useTypewriter } from "use-typewriter-hook";
-// import customTypewriterStyles from "../../styles/CustomTypewriterStyles.module.css";
 
 const CustomCursorTypewriter: React.FC = ({}) => {
   const targetText =

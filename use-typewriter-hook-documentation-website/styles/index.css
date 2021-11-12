@@ -38,3 +38,179 @@
 .documentation-button:active {
   background-color: #0761d1;
 }
+
+/*  */
+#navbar {
+  position: fixed;
+  min-width: 290px;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 100%;
+  border-right: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+}
+nav {
+  display: block;
+}
+
+/* @media only screen and (max-width: 815px) #navbar {
+	background-color: white;
+	position: absolute;
+	top: 0;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	max-height: 275px;
+	border: none;
+	z-index: 1;
+	border-bottom: 2px solid;
+} */
+header {
+  color: black;
+  margin: 10px;
+  text-align: center;
+  font-size: 1.8em;
+}
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+#navbar ul {
+  height: 88%;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* @media only screen and (max-width: 815px) #navbar ul {
+	border: 1px solid;
+	height: 207px;
+} */
+
+#navbar li {
+  color: #4d4e53;
+  border-top: 1px solid;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+#navbar a {
+  display: block;
+  padding: 10px 30px;
+  color: #4d4e53;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#main-doc {
+  position: absolute;
+  margin-left: 310px;
+  padding: 20px;
+  margin-bottom: 110px;
+}
+/* 
+@media only screen and (max-width: 815px) #main-doc {
+	position: relative;
+	margin-left: 0px;
+	margin-top: 270px;
+} */
+
+section {
+  display: block;
+}
+#main-doc header {
+  text-align: left;
+  margin: 0px;
+}
+
+section article {
+  color: #4d4e53;
+  margin: 15px;
+  font-size: 0.96em;
+}
+section li {
+  margin: 15px 0px 0px 20px;
+}
+code {
+  display: block;
+  text-align: left;
+  white-space: pre-line;
+  position: relative;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 2;
+  background-color: #f7f7f7;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 5px;
+  font-family: monospace;
+}
+
+table {
+  font: inherit;
+}
+
+th {
+  padding: 10px 10px;
+  text-align: center;
+  font-weight: 200;
+  border-radius: 5px;
+  margin-bottom: 0.1rem;
+}
+
+td {
+  border: 1px solid #ececec;
+  border-radius: 5px;
+  padding: 10px 10px;
+  background-color: #ececec;
+}
+
+thead {
+  background-color: #83a4d4;
+  color: #fff;
+  border-radius: 5px;
+}
+
+section {
+  margin-bottom: 10%;
+}
+
+pre {
+  font-size: 16px;
+  background-color: rgba(185, 172, 172, 0.212);
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.example-typewriter-wrapper {
+  border: solid 1px grey;
+  padding: 1rem;
+  border-radius: 10px;
+  min-height: max-content;
+}
+
+/* CUSTOM TYPEWRITER WITH BOLD, COLOR, AND HIGHLIGHT */
+.custom-typewriter-text {
+  color: rgb(46, 46, 206);
+}
+
+/* CUSTOM TYPEWRITER WITH CUSTOM COLOR CURSOR */
+#custom-cursor-typewriter:after {
+  border-right: 4px solid rgb(99, 238, 99);
+}
+
+.documentation-example-single-wrapper {
+  margin-bottom: 4rem;
+}
