@@ -3,24 +3,28 @@ import * as React from "react";
 const MethodsTable: React.FC = () => {
   return (
     <div className="methods-table-wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Params</th>
-            <th>Description</th>
+      <table className="methods-table">
+        <thead className="table-head">
+          <tr className="table-head-row">
+            <th className="first-column head">Name</th>
+            <th className="second-column head">Params</th>
+            <th className="third-column head">Description</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>pause</td>
-            <td>-</td>
-            <td>Pause the typewriter effect on calling.</td>
+        <tbody className="table-body">
+          <tr className="first-row">
+            <td className="first-column">pause</td>
+            <td className="second-column">-</td>
+            <td className="third-column">
+              Pause the typewriter effect on calling.
+            </td>
           </tr>
-          <tr>
-            <td>start</td>
-            <td>-</td>
-            <td>Start the typewriter effect on calling.</td>
+          <tr className="second-row">
+            <td className="first-column">start</td>
+            <td className="second-column">-</td>
+            <td className="third-column">
+              Start the typewriter effect on calling.
+            </td>
           </tr>
         </tbody>
       </table>

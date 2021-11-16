@@ -1,6 +1,6 @@
 {
   "name": "use-typewriter-hook-documentation-website",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -1,13 +1,14 @@
 .footer {
   display: flex;
   flex-direction: row;
-  padding: 1.5rem 0;
+  padding: 1.5rem 2rem 1.5rem 2rem;
   border-top: 1px solid #eaeaea;
   justify-content: space-between;
   align-items: center;
 }
 
 .app-name {
+  font-family: "PT Mono", monospace;
   font-size: 2rem;
   display: block;
   text-align: center;
@@ -15,9 +16,6 @@
 }
 
 .documentation-button {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
   margin-bottom: 30%;
   padding: 0 3.5rem;
   height: 2.81rem;
@@ -39,159 +37,196 @@
   background-color: #0761d1;
 }
 
-/*  */
-#navbar {
-  position: fixed;
-  min-width: 290px;
-  top: 0px;
-  left: 0px;
-  width: 300px;
-  height: 100%;
-  border-right: solid;
-  border-color: rgba(0, 22, 22, 0.4);
-}
-nav {
-  display: block;
-}
-
-/* @media only screen and (max-width: 815px) #navbar {
-	background-color: white;
-	position: absolute;
-	top: 0;
-	padding: 0;
-	margin: 0;
-	width: 100%;
-	max-height: 275px;
-	border: none;
-	z-index: 1;
-	border-bottom: 2px solid;
-} */
+/*  DOCUMENTATION PAGE  */
 header {
-  color: black;
+  color: #212f3c;
   margin: 10px;
   text-align: center;
   font-size: 1.8em;
 }
-ul {
-  display: block;
-  list-style-type: disc;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 40px;
+/* DOCUMENTATION PAGE UPPER NAV */
+.documentation-page-upper-nav {
+  border-bottom: solid 1px rgb(156, 155, 155);
+  padding: 0.5rem 0;
+  text-align: center;
+  z-index: 1;
+  font-weight: 800;
+  font-size: 1.4rem;
 }
-
-#navbar ul {
-  height: 88%;
-  padding: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
+/* DOCUMENTATION NAV BAR */
+.navbar {
+  min-width: 20%;
+  min-height: 100%;
+  border-right: solid 1px;
+  border-color: rgba(156, 155, 155, 0.74);
+  z-index: 2;
+  font-size: 18px;
+  background-color: #f4f6f7;
 }
-
-/* @media only screen and (max-width: 815px) #navbar ul {
-	border: 1px solid;
-	height: 207px;
-} */
-
-#navbar li {
-  color: #4d4e53;
-  border-top: 1px solid;
+.navbar li {
   list-style: none;
   position: relative;
   width: 100%;
 }
-
-li {
-  display: list-item;
-  text-align: -webkit-match-parent;
+.navbar ul {
+  padding: 0;
 }
-#navbar a {
+@media only screen and (max-width: 600px) {
+  .navbar {
+    position: absolute;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-height: 275px;
+    border: none;
+    z-index: 2;
+    border-bottom: 2px solid red;
+  }
+}
+
+@media only screen and (max-width: 815px) {
+  .navbar ul {
+    border: 1px solid;
+    height: 207px;
+  }
+}
+.nav-link:hover {
+  font-weight: 400;
+}
+.nav-link:active {
+  font-weight: 400;
+  color: rgb(10, 99, 151);
+}
+
+.navbar a {
   display: block;
-  padding: 10px 30px;
   color: #4d4e53;
-  text-decoration: none;
-  cursor: pointer;
+  padding: 1em 2em 1em 2em;
+  font-weight: 300;
+  font-size: 20px;
+  white-space: nowrap;
 }
 
-#main-doc {
-  position: absolute;
-  margin-left: 310px;
-  padding: 20px;
-  margin-bottom: 110px;
+/* DOCUMENTATION CONTENT */
+
+article p {
+  line-height: 3.5ch;
+  font-size: 18px;
 }
-/* 
-@media only screen and (max-width: 815px) #main-doc {
-	position: relative;
-	margin-left: 0px;
-	margin-top: 270px;
-} */
+
+.main-doc {
+  padding-left: 2rem;
+  padding-top: 1.7rem;
+  max-width: fit-content;
+  min-width: 10rem;
+}
+
+@media only screen and (max-width: 815px) {
+  .main-doc {
+    position: relative;
+    margin-left: 0px;
+    margin-top: 270px;
+  }
+}
 
 section {
   display: block;
+  margin-bottom: 6%;
 }
-#main-doc header {
+
+.main-doc header {
   text-align: left;
   margin: 0px;
+  font-weight: 700;
+  margin-left: 2%;
 }
 
 section article {
-  color: #4d4e53;
-  margin: 15px;
-  font-size: 0.96em;
+  font-size: 17px;
+  max-width: 95%;
+  margin-left: 2%;
 }
 section li {
   margin: 15px 0px 0px 20px;
 }
-code {
-  display: block;
-  text-align: left;
-  white-space: pre-line;
-  position: relative;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 2;
-  background-color: #f7f7f7;
-  padding: 15px;
-  margin: 10px;
-  border-radius: 5px;
-  font-family: monospace;
-}
 
+/* TABLE */
 table {
-  font: inherit;
+  display: block;
+  border: none;
+  border-spacing: 0px;
+  box-shadow: 0 0 20px rgb(156, 155, 155);
+  border-collapse: separate !important;
+  border-radius: 10px;
+  margin-top: 2%;
+  overflow: hidden;
 }
-
+.methods-table {
+  max-width: fit-content;
+}
+.options-table {
+  max-width: fit-content;
+}
 th {
+  border-bottom: solid 1px rgb(140, 145, 150);
   padding: 10px 10px;
   text-align: center;
-  font-weight: 200;
-  border-radius: 5px;
+  font-weight: 600;
   margin-bottom: 0.1rem;
+  text-transform: uppercase;
+  color: #5d6d7e;
 }
-
+.first-column {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.second-column {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.third-column {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.fourth-column {
+  padding-left: 30px;
+  padding-right: 30px;
+}
 td {
-  border: 1px solid #ececec;
-  border-radius: 5px;
-  padding: 10px 10px;
-  background-color: #ececec;
+  color: #566573;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: solid 1px #f0f3f4;
+  white-space: nowrap;
+  font-weight: 300;
 }
-
+th {
+  padding: 1rem 1rem;
+}
 thead {
-  background-color: #83a4d4;
-  color: #fff;
-  border-radius: 5px;
+  background: #f4f6f7;
+  color: black;
+  border-bottom: solid 2px #ecf0f1;
+}
+thead th:first-child {
+  border-radius: 10px 0px 0px 0px;
+}
+thead th:last-child {
+  border-radius: 0px 10px 0px 0px;
 }
 
-section {
-  margin-bottom: 10%;
-}
-
+/* CODE */
 pre {
   font-size: 16px;
-  background-color: rgba(185, 172, 172, 0.212);
+  background-color: rgba(214, 213, 213, 0.295);
   border-radius: 6px;
-  padding: 10px;
+  line-height: 1.4;
+  padding: 15px;
+  margin: 10px;
+  max-width: 90%;
+  min-width: 400px;
+  font-family: Andale Mono, AndaleMono, Lucida Console, monospace;
 }
 
 .example-typewriter-wrapper {
@@ -212,5 +247,5 @@ pre {
 }
 
 .documentation-example-single-wrapper {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }

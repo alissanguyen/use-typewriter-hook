@@ -1,6 +1,6 @@
 {
     "name": "use-typewriter-hook",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "A flexible hook for creating typewriter-like experience with React.",
     "main": "index.js",
     "types": "index.d.ts",

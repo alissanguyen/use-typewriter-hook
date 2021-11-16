@@ -2,10 +2,10 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "PT Mono", monospace;
-  /* font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-  sans-serif; */
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  color: #17202a;
 }
 
 a {
@@ -31,4 +31,8 @@ a {
   100% {
     opacity: 1;
   }
+}
+
+.documentation-page-content-wrapper {
+  display: flex;
 }
