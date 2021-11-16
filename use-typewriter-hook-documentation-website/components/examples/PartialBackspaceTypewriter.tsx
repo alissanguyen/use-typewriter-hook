@@ -15,7 +15,14 @@ const PartialBackspaceTypewriter: React.FC<Props> = ({}) => {
     typingDelayMillis: 50,
     loop: false,
   });
-  return <div className={wrapperClassName}>{typedText}</div>;
+  return (
+    <div className="partial-backspace-typewriter-wrapper">
+      <div className="example-typewriter-wrapper">
+        <div className={wrapperClassName}>{typedText}</div>
+      </div>
+      <pre className="example-typewriter-code-snippet"></pre>
+    </div>
+  );
 };
 
 export default PartialBackspaceTypewriter;

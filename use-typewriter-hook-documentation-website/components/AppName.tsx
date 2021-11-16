@@ -1,22 +1,18 @@
 import * as React from "react";
 import { useTypewriter } from "use-typewriter-hook";
 
-const CustomTypewriter: React.FC = () => {
-  const targetText =
-    "Welcome to React useTypewriter. This is a custom typewriter, you can highlight different words.";
+interface Props {}
 
+const AppName: React.FC<Props> = ({}) => {
+  const targetText = "useTypewriter";
   const { textValue: typedText, wrapperClassName } = useTypewriter({
     targetText: targetText,
-    typingDelayMillis: 50,
+    typingDelayMillis: 100,
     loop: false,
   });
 
-  /**
-   * You can select as many words or phrases as you like to highlight/customize their color/bold
-   * Here as an example, we select one phrase and one word to customize
-   */
-  const stringToSearch = "React useTypewriter";
-  const stringToSearch2 = "highlight";
+  const stringToSearch = "use";
+  const stringToSearch2 = "Typewriter";
 
   const startIndex1 = targetText.indexOf(stringToSearch);
   const endIndex1 = startIndex1 + stringToSearch.length;
@@ -30,19 +26,15 @@ const CustomTypewriter: React.FC = () => {
     startIndex2,
     endIndex2
   );
-
   return (
-    <div className="custom-typewriter-wrapper">
-      <div className="example-typewriter-wrapper">
-        <div className={wrapperClassName} id="custom-typewriter">
-          {fragments}
-        </div>
-      </div>
-      <pre className="example-typewriter-code-snippet"></pre>
-    </div>
+    <header
+      className={wrapperClassName}
+      id="documentation-page-header"
+    >
+      {fragments}
+    </header>
   );
 };
-
 const createBoldAndHighlightedReactNodes = (
   str: string,
   startIndex1: number,
@@ -59,13 +51,14 @@ const createBoldAndHighlightedReactNodes = (
    */
   return [
     str.slice(0, startIndex1),
-    <strong key={0} className="custom-typewriter-text">
+    <p key={0} className="app-name-header-first-word">
       {boldContents}
-    </strong>,
+    </p>,
     str.slice(endIndex1, startIndex2),
-    <mark key={1}>{highlightedContents}</mark>,
+    <p className="app-name-header-second-word" key={1}>
+      {highlightedContents}
+    </p>,
     str.slice(endIndex2, str.length),
   ];
 };
-
-export default CustomTypewriter;
+export default AppName;

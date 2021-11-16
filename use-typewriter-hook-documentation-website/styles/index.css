@@ -2,9 +2,24 @@
   display: flex;
   flex-direction: row;
   padding: 1.5rem 2rem 1.5rem 2rem;
-  border-top: 1px solid #eaeaea;
   justify-content: space-between;
   align-items: center;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.home-page-footer {
+  border-top: 1px solid #eaeaea;
+}
+.home-page-content-wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .app-name {
@@ -12,11 +27,12 @@
   font-size: 2rem;
   display: block;
   text-align: center;
-  margin-top: 30%;
 }
 
 .documentation-button {
-  margin-bottom: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0 3.5rem;
   height: 2.81rem;
   line-height: 2.8rem;
@@ -26,7 +42,6 @@
   color: white;
   font-size: 16px;
   border: none;
-  margin-left: 42%;
   font-weight: 300;
 }
 .documentation-button:hover {
@@ -39,39 +54,41 @@
 
 /*  DOCUMENTATION PAGE  */
 header {
-  color: #212f3c;
-  margin: 10px;
-  text-align: center;
   font-size: 1.8em;
+}
+#documentation-page-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#documentation-page-header:after {
+  border-right: 4px solid #212f3c;
+  height: 2ch;
+  align-self: center;
+}
+.app-name-header-second-word {
+  color: #3291ff;
 }
 /* DOCUMENTATION PAGE UPPER NAV */
 .documentation-page-upper-nav {
-  border-bottom: solid 1px rgb(156, 155, 155);
-  padding: 0.5rem 0;
-  text-align: center;
-  z-index: 1;
   font-weight: 800;
   font-size: 1.4rem;
 }
 /* DOCUMENTATION NAV BAR */
 .navbar {
-  min-width: 20%;
-  min-height: 100%;
-  border-right: solid 1px;
-  border-color: rgba(156, 155, 155, 0.74);
-  z-index: 2;
-  font-size: 18px;
-  background-color: #f4f6f7;
+  top: 0;
+  align-self: flex-start;
+  position: sticky;
+  flex: 1;
 }
 .navbar li {
   list-style: none;
-  position: relative;
   width: 100%;
 }
 .navbar ul {
   padding: 0;
 }
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .navbar {
     position: absolute;
     top: 0;
@@ -83,14 +100,14 @@ header {
     z-index: 2;
     border-bottom: 2px solid red;
   }
-}
+} */
 
-@media only screen and (max-width: 815px) {
+/* @media only screen and (max-width: 815px) {
   .navbar ul {
     border: 1px solid;
     height: 207px;
   }
-}
+} */
 .nav-link:hover {
   font-weight: 400;
 }
@@ -109,58 +126,87 @@ header {
 }
 
 /* DOCUMENTATION CONTENT */
+.documentation-page-content-wrapper {
+  max-width: 1200px;
+  margin: auto;
+}
+/* Main Doc */
+.main-doc {
+  flex: 3;
+  border: solid 1px rgba(156, 155, 155, 0.74);
+  border-radius: 8px;
+  padding: 2rem 2.5rem 0 2.5rem;
+  background-color: white;
+  box-shadow: 0 0 20px rgb(156, 155, 155);
+}
 
+/* Sections */
+section {
+  display: block;
+  margin-bottom: 3rem;
+}
+
+/* Articles */
 article p {
   line-height: 3.5ch;
   font-size: 18px;
 }
 
-.main-doc {
-  padding-left: 2rem;
-  padding-top: 1.7rem;
-  max-width: fit-content;
-  min-width: 10rem;
-}
-
-@media only screen and (max-width: 815px) {
-  .main-doc {
-    position: relative;
-    margin-left: 0px;
-    margin-top: 270px;
-  }
-}
-
-section {
-  display: block;
-  margin-bottom: 6%;
-}
-
-.main-doc header {
-  text-align: left;
-  margin: 0px;
-  font-weight: 700;
-  margin-left: 2%;
-}
-
 section article {
   font-size: 17px;
-  max-width: 95%;
-  margin-left: 2%;
-}
-section li {
-  margin: 15px 0px 0px 20px;
+  padding-left: 13px;
 }
 
-/* TABLE */
+/* Headers */
+.main-doc header {
+  text-align: left;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.documentation-page-header-1 {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+}
+.documentation-page-header-2 {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+.documentation-page-header-3 {
+  background: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%);
+}
+.documentation-page-header-4 {
+  background: linear-gradient(135deg, #71a8ff 0%, #c3cfe2 100%);
+}
+.documentation-page-header-5 {
+  background: linear-gradient(135deg, #62e0c1 0%, #d5df4a 100%);
+}
+
+/* @media only screen and (max-width: 1420px) {
+ 
+  .main-doc {
+    padding-right: 3.4rem;
+    width: 1050px;
+  }
+}
+@media only screen and (min-width: 1420px) {
+  .documentation-page-content-wrapper {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .main-doc {
+    padding-right: 4%;
+  }
+} */
+
+/* DOCUMENTATION PAGE TABLE */
 table {
-  display: block;
   border: none;
   border-spacing: 0px;
-  box-shadow: 0 0 20px rgb(156, 155, 155);
+  box-shadow: 0 0 20px rgba(156, 155, 155, 0.582);
   border-collapse: separate !important;
   border-radius: 10px;
-  margin-top: 2%;
-  overflow: hidden;
+  margin-top: 1.5rem;
+  table-layout: fixed;
 }
 .methods-table {
   max-width: fit-content;
@@ -178,27 +224,28 @@ th {
   color: #5d6d7e;
 }
 .first-column {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 20px;
+  padding-right: 18px;
 }
 .second-column {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .third-column {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .fourth-column {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 td {
+  font-size: 16px;
   color: #566573;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: 20px;
+  padding-bottom: 22px;
   border-bottom: solid 1px #f0f3f4;
-  white-space: nowrap;
+  white-space: normal;
   font-weight: 300;
 }
 th {
@@ -206,7 +253,6 @@ th {
 }
 thead {
   background: #f4f6f7;
-  color: black;
   border-bottom: solid 2px #ecf0f1;
 }
 thead th:first-child {
@@ -216,26 +262,92 @@ thead th:last-child {
   border-radius: 0px 10px 0px 0px;
 }
 
-/* CODE */
-pre {
+/* DOCUMENTATION PAGE INSTALLATION CODE */
+.installation-pre {
   font-size: 16px;
   background-color: rgba(214, 213, 213, 0.295);
   border-radius: 6px;
   line-height: 1.4;
   padding: 15px;
   margin: 10px;
-  max-width: 90%;
+  max-width: 1100px;
   min-width: 400px;
   font-family: Andale Mono, AndaleMono, Lucida Console, monospace;
 }
-
+/* DOCUMENTATION PAGE EXAMPLES */
 .example-typewriter-wrapper {
-  border: solid 1px grey;
+  border: solid 1px rgba(184, 188, 192, 0.575);
+  box-shadow: 0 0 20px rgba(156, 155, 155, 0.322);
   padding: 1rem;
   border-radius: 10px;
   min-height: max-content;
 }
-
+.example-typewriter-code-snippet-wrapper {
+  background-color: rgb(32, 33, 35);
+  padding: 1rem;
+  padding-top: 2rem;
+  border-radius: 0.6rem;
+  margin-top: 1rem;
+}
+.example-typewriter-code-snippet {
+  font-size: 15px;
+  line-height: 24px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  height: auto !important;
+  color: white;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+}
+.code-snippet-button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.code-snippet-button-code {
+  background-color: rgba(255, 255, 255, 0.959);
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  font-family: inherit;
+  font-size: inherit;
+  color: #050505;
+  border: none;
+  border-right: solid 1px black;
+}
+.code-snippet-button-code:focus {
+  background-color: rgb(0, 128, 96);
+  color: #f9fcff;
+}
+.code-snippet-button-css {
+  background-color: rgba(255, 255, 255, 0.959);
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  border-left: solid 1px black;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  font-family: inherit;
+  font-size: inherit;
+  color: #050505;
+  border: none;
+}
+.code-snippet-button-css:focus {
+  background-color: rgb(0, 128, 96);
+  color: #f9fcff;
+}
+.code-snippet-copy-button {
+  background-color: rgba(255, 255, 255, 0.959);
+  border-radius: 4px;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  font-family: inherit;
+  font-size: inherit;
+  color: #050505;
+  border: none;
+}
+.code-snippet-copy-button:active {
+  background-color: rgb(0, 128, 96);
+  color: #f9fcff;
+  transition: background 0.2s ease, color 0.2s ease;
+}
 /* CUSTOM TYPEWRITER WITH BOLD, COLOR, AND HIGHLIGHT */
 .custom-typewriter-text {
   color: rgb(46, 46, 206);

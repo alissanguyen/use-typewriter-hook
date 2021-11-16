@@ -9,9 +9,13 @@ const CustomCursorTypewriter: React.FC = ({}) => {
     typingDelayMillis: 50,
   });
   return (
-    //   Have to compose classNames to get all the css rules
-    <div className={`${wrapperClassName} `} id="custom-cursor-typewriter">
-      {typedText}
+    <div className="custom-cursor-typewriter-wrapper">
+      <div className="example-typewriter-wrapper">
+        <div className={`${wrapperClassName} `} id="custom-cursor-typewriter">
+          {typedText}
+        </div>
+      </div>
+      <pre className="example-typewriter-code-snippet"></pre>
     </div>
   );
 };

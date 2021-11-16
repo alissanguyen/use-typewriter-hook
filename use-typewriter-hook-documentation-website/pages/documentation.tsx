@@ -1,4 +1,5 @@
 import * as React from "react";
+import AppName from "../components/AppName";
 import BasicTypewriter from "../components/examples/BasicTypewriter";
 import CustomCursorTypewriter from "../components/examples/CustomCursorTypewriter";
 import CustomTypewriter from "../components/examples/CustomTypewriter";
@@ -12,10 +13,10 @@ const DocumentationPage: React.FC = () => {
   return (
     <div>
       <div className="documentation-page-upper-nav">
-        <header className="documentation-page-header">useTypewriter</header>
+        <AppName />
       </div>
       <div className="documentation-page-content-wrapper">
-        <nav className="navbar">
+        <nav className="navbar sticky-elements">
           <ul>
             <li>
               <a className="nav-link" href="#Introduction">
@@ -46,7 +47,9 @@ const DocumentationPage: React.FC = () => {
         </nav>
         <main className="main-doc">
           <section className="main-section" id="Introduction">
-            <header>Introduction</header>
+            <header className="documentation-page-header-1">
+              Introduction
+            </header>
             <article>
               <p>
                 <strong>useTypewriter</strong> is a flexible hook for creating
@@ -57,69 +60,66 @@ const DocumentationPage: React.FC = () => {
             </article>
           </section>
           <section className="main-section" id="Installation">
-            <header>Installation</header>
+            <header className="documentation-page-header-2">
+              Installation
+            </header>
             <article>
-              <p>Here's how to get started with useTypewriter:</p>
-              <ul>
-                {" "}
-                You can install React useTypewriter with one simple command
-                <li>With npm</li>
-                <pre>npm i use-typewriter-hook</pre>
-                <li>With yarn</li>
-                <pre>yarn add use-typewriter-hook</pre>
-              </ul>
+              <p>
+                Here's how to get started with <strong>useTypewriter</strong>{" "}
+                with one simple command:
+              </p>
+              <li>With npm</li>
+              <pre className="installation-pre">npm i use-typewriter-hook</pre>
+              <li>With yarn</li>
+              <pre className="installation-pre">yarn add use-typewriter-hook</pre>
             </article>
           </section>
           <section className="main-section" id="Options">
-            <header>Options</header>
+            <header className="documentation-page-header-3">Options</header>
             <article>
-              <p>useTypewriter has these options built-in:</p>
+              <p>
+                <strong>useTypewriter</strong> has these options built-in:
+              </p>
               <OptionsTable />
             </article>
           </section>
           <section className="main-section" id="Methods">
-            <header>Methods (Functions)</header>
+            <header className="documentation-page-header-4">
+              Methods (Functions)
+            </header>
             <article>
               <p>
-                useTypewriter has only a few simple methods (functions) and all
-                methods can be chained together.
+                <strong>useTypewriter</strong> has only a few simple methods
+                (functions) and all methods can be chained together.
               </p>
               <MethodsTable />
             </article>
           </section>
           <section className="main-section" id="Examples">
-            <header>Examples</header>
+            <header className="documentation-page-header-5">Examples</header>
             <article>
-            <div className="documentation-example-single-wrapper">
-              <h3>Basic Typewriter</h3>
-              <div className="example-typewriter-wrapper">
+              <div className="documentation-example-single-wrapper">
+                <h3>Basic Typewriter</h3>
                 <BasicTypewriter />
               </div>
-            </div>
-            <div className="documentation-example-single-wrapper">
-              <h3>Typewriter with Custom Cursor</h3>
-              <div className="example-typewriter-wrapper">
+              <div className="documentation-example-single-wrapper">
+                <h3>Typewriter with Custom Cursor</h3>
                 <CustomCursorTypewriter />
               </div>
-            </div>
-            <div className="documentation-example-single-wrapper">
-              <h3>Custom Typewriter with Highlighted Text</h3>
-              <div className="example-typewriter-wrapper">
+              <div className="documentation-example-single-wrapper">
+                <h3>Custom Typewriter with Highlighted Text</h3>
                 <CustomTypewriter />
               </div>
-            </div>
-            <div className="documentation-example-single-wrapper">
-              <h3>Typewriter with Looping Effect</h3>
-              <div className="example-typewriter-wrapper">
+              <div className="documentation-example-single-wrapper">
+                <h3>Typewriter with Looping Effect</h3>
+
                 <TypewriterWithLoop />
               </div>
-            </div>
-            <div className="documentation-example-single-wrapper">
-              <h3>Typewriter with Backspacing Effect</h3>
-              <div className="example-typewriter-wrapper">
+              <div className="documentation-example-single-wrapper">
+                <h3>Typewriter with Backspacing Effect</h3>
+
                 <PartialBackspaceTypewriter />
               </div>
-            </div>
             </article>
           </section>
         </main>
