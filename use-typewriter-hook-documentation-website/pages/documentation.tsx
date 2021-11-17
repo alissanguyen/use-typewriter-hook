@@ -1,5 +1,8 @@
+import { useRouter } from "next/router";
 import * as React from "react";
 import AppName from "../components/AppName";
+import Chapter from "../components/Chapter";
+import ChapterPointer from "../components/ChapterPointer";
 import BasicTypewriter from "../components/examples/BasicTypewriter";
 import CustomCursorTypewriter from "../components/examples/CustomCursorTypewriter";
 import CustomTypewriter from "../components/examples/CustomTypewriter";
@@ -10,43 +13,117 @@ import MethodsTable from "../components/MethodsTable";
 import OptionsTable from "../components/OptionsTable";
 
 const DocumentationPage: React.FC = () => {
+  const [chapterLocation, setChapterLocation] = React.useState<string>("");
+  /**
+   * Key value pair where the keys are the Ids of elements on this page.
+   * And the numbers are the y-position
+   */
+  const chaptersRef = React.useRef<Record<string, number>>({});
+
+  const updateElementInChaptersRef =
+    (id: string) => (element: Element | null) => {
+      if (element) {
+        chaptersRef.current[id] = element.getBoundingClientRect().y;
+      }
+    };
+
+  console.log(chaptersRef.current);
+
+  React.useEffect(() => {
+    if (chapterLocation === "") {
+      history.pushState(null, "", "");
+    } else {
+      history.pushState(null, "", "#" + chapterLocation);
+    }
+  }, [chapterLocation]);
+
+  /**
+   * Convert the chaptersRef to an array of objects with the id of the chapter and the y position of the chapter, then sort highest y position first.
+   */
+
+  // Handle when hash changes
+  React.useEffect(() => {
+    const onHashChanged = () => {
+      setChapterLocation(window.location.hash);
+    };
+
+    // Update hash on scroll
+    window.addEventListener("scroll", () => {
+      const chaptersArray = Object.entries(chaptersRef.current)
+        .map(([key, value]) => {
+          return {
+            id: key,
+            yPosition: value,
+          };
+        })
+        .sort((a, b) => {
+          return b.yPosition - a.yPosition;
+        });
+
+      const currentScrollPosition = window.scrollY;
+
+      const elementThatIsClosest = chaptersArray.find(
+        (chapter) => chapter.yPosition <= currentScrollPosition
+      );
+
+      if (!elementThatIsClosest) {
+        return;
+      }
+
+      setChapterLocation(elementThatIsClosest.id);
+    });
+
+    window.addEventListener("hashchange", onHashChanged);
+    return () => {
+      window.removeEventListener("hashchange", onHashChanged);
+    };
+  }, []);
+
   return (
     <div>
       <div className="documentation-page-upper-nav">
         <AppName />
       </div>
       <div className="documentation-page-content-wrapper">
-        <nav className="navbar sticky-elements">
-          <ul>
+        <nav className="navbar">
+          <ul className="navbar-menu">
             <li>
-              <a className="nav-link" href="#Introduction">
-                Introduction
-              </a>
+              <ChapterPointer
+                chapterName="Introduction"
+                hashUrl={chapterLocation}
+              />
+              <Chapter chapterName="Introduction" hashUrl={chapterLocation} />
             </li>
             <li>
-              <a className="nav-link" href="#Installation">
-                Installation
-              </a>
+              <ChapterPointer
+                chapterName="Installation"
+                hashUrl={chapterLocation}
+              />
+              <Chapter chapterName="Installation" hashUrl={chapterLocation} />
             </li>
             <li>
-              <a className="nav-link" href="#Options">
-                Options
-              </a>
+              <ChapterPointer chapterName="Options" hashUrl={chapterLocation} />
+              <Chapter chapterName="Options" hashUrl={chapterLocation} />
             </li>
             <li>
-              <a className="nav-link" href="#Methods">
-                Methods (Functions)
-              </a>
+              <ChapterPointer chapterName="Methods" hashUrl={chapterLocation} />
+              <Chapter chapterName="Methods" hashUrl={chapterLocation} />
             </li>
             <li>
-              <a className="nav-link" href="#Examples">
-                Examples
-              </a>
+              <ChapterPointer
+                chapterName="Examples"
+                hashUrl={chapterLocation}
+              />
+              <Chapter chapterName="Examples" hashUrl={chapterLocation} />
             </li>
           </ul>
         </nav>
         <main className="main-doc">
-          <section className="main-section" id="Introduction">
+          <section
+            className="main-section"
+            id="Introduction"
+            ref={updateElementInChaptersRef("Introduction")}
+          >
             <header className="documentation-page-header-1">
               Introduction
             </header>
@@ -59,7 +136,11 @@ const DocumentationPage: React.FC = () => {
               </p>
             </article>
           </section>
-          <section className="main-section" id="Installation">
+          <section
+            className="main-section"
+            id="Installation"
+            ref={updateElementInChaptersRef("Installation")}
+          >
             <header className="documentation-page-header-2">
               Installation
             </header>
@@ -71,10 +152,16 @@ const DocumentationPage: React.FC = () => {
               <li>With npm</li>
               <pre className="installation-pre">npm i use-typewriter-hook</pre>
               <li>With yarn</li>
-              <pre className="installation-pre">yarn add use-typewriter-hook</pre>
+              <pre className="installation-pre">
+                yarn add use-typewriter-hook
+              </pre>
             </article>
           </section>
-          <section className="main-section" id="Options">
+          <section
+            className="main-section"
+            id="Options"
+            ref={updateElementInChaptersRef("Options")}
+          >
             <header className="documentation-page-header-3">Options</header>
             <article>
               <p>
@@ -83,7 +170,11 @@ const DocumentationPage: React.FC = () => {
               <OptionsTable />
             </article>
           </section>
-          <section className="main-section" id="Methods">
+          <section
+            className="main-section"
+            id="Methods"
+            ref={updateElementInChaptersRef("Methods")}
+          >
             <header className="documentation-page-header-4">
               Methods (Functions)
             </header>
@@ -95,7 +186,11 @@ const DocumentationPage: React.FC = () => {
               <MethodsTable />
             </article>
           </section>
-          <section className="main-section" id="Examples">
+          <section
+            className="main-section"
+            id="Examples"
+            ref={updateElementInChaptersRef("Examples")}
+          >
             <header className="documentation-page-header-5">Examples</header>
             <article>
               <div className="documentation-example-single-wrapper">

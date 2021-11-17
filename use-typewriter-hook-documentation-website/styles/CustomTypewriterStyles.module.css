@@ -11,7 +11,6 @@
 
 #custom-typewriter {
   font-weight: 500;
-  /* font-size: 2rem; */
 }
 
 /* CUSTOM TYPEWRITER WITH CUSTOM COLOR CURSOR */
@@ -21,11 +20,9 @@
 
 .custom-cursor-typewriter {
   font-weight: 500;
-  /* font-size: 2rem; */
 }
 
 /* TYPEWRITER WITH INFINITE LOOPING EFFECT */
 .use-typewriter-cursor {
   font-weight: 500;
-  /* font-size: 2rem; */
 }

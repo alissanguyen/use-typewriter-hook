@@ -27,10 +27,7 @@ const AppName: React.FC<Props> = ({}) => {
     endIndex2
   );
   return (
-    <header
-      className={wrapperClassName}
-      id="documentation-page-header"
-    >
+    <header className={wrapperClassName} id="documentation-page-header">
       {fragments}
     </header>
   );

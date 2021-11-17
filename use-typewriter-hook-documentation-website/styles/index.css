@@ -82,11 +82,18 @@ header {
   flex: 1;
 }
 .navbar li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   list-style: none;
   width: 100%;
 }
-.navbar ul {
-  padding: 0;
+.navbar-menu {
+  padding-left: 2rem;
+}
+
+.chapter-pointer {
+  color: #0070f3;
 }
 /* @media only screen and (max-width: 600px) {
   .navbar {
@@ -129,6 +136,7 @@ header {
 .documentation-page-content-wrapper {
   max-width: 1200px;
   margin: auto;
+  margin-bottom: 1rem;
 }
 /* Main Doc */
 .main-doc {
@@ -175,7 +183,7 @@ section article {
   background: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%);
 }
 .documentation-page-header-4 {
-  background: linear-gradient(135deg, #71a8ff 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, #fad1ff 10%, #3c81f0 100%);
 }
 .documentation-page-header-5 {
   background: linear-gradient(135deg, #62e0c1 0%, #d5df4a 100%);
@@ -316,7 +324,7 @@ thead th:last-child {
   border-right: solid 1px black;
 }
 .code-snippet-button-code:focus {
-  background-color: rgb(0, 128, 96);
+  background-color: rgb(33, 187, 148);
   color: #f9fcff;
 }
 .code-snippet-button-css {
@@ -331,7 +339,7 @@ thead th:last-child {
   border: none;
 }
 .code-snippet-button-css:focus {
-  background-color: rgb(0, 128, 96);
+  background-color: rgb(33, 187, 148);
   color: #f9fcff;
 }
 .code-snippet-copy-button {
@@ -344,7 +352,7 @@ thead th:last-child {
   border: none;
 }
 .code-snippet-copy-button:active {
-  background-color: rgb(0, 128, 96);
+  background-color: rgb(33, 187, 148);
   color: #f9fcff;
   transition: background 0.2s ease, color 0.2s ease;
 }
