@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useTypewriter } from "use-typewriter-hook";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { solarizedlight as style } from "react-syntax-highlighter/dist/esm/styles/prism";
+import CodeSnippet from "../CodeSnippet";
 
 const BasicTypewriter: React.FC = () => {
   enum CODE {
@@ -20,7 +19,10 @@ const BasicTypewriter: React.FC = () => {
         opacity: 1;
       }
     }`,
-    TSX = `import { useTypewriter } from "use-typewriter-hook";
+    TSX = `import * as React from "react";
+    import { useTypewriter } from "use-typewriter-hook";
+    
+    const CustomTypewriter: React.FC = () => {
 
     const BasicTypewriter: React.FC = () => {
       const targetText = "Welcome to React useTypewriter. This is a basic typewriter. You can also display emojis, like this 😜 🤩 🥳 😍 !";
@@ -38,20 +40,10 @@ const BasicTypewriter: React.FC = () => {
         </div>
       );
     };
-    `,
-  }
-  const customStyle = {
-    backgroundColor: "transparent",
-    filter: "hue-rotate(-20deg) contrast(150%) brightness(1.5)",
-    maxWidth: "900px",
-    border: "none",
-    padding: "0 1rem",
-    fontFamily:
-      "font-family: Andale Mono, AndaleMono, Lucida Console, monospace;",
-  };
 
-  const [codeToShow, setCodeToShow] = React.useState(CODE.TSX);
-  const [language, setLanguage] = React.useState("typescript");
+    export default BasicTypewriter;`,
+  }
+
   const targetText =
     "Welcome to React useTypewriter. This is a basic typewriter. You can also display emojis, like this 😜 🤩 🥳 😍 !";
   const { textValue: typedText, wrapperClassName } = useTypewriter({
@@ -59,7 +51,6 @@ const BasicTypewriter: React.FC = () => {
     typingDelayMillis: 50,
   });
 
-  const codeString = codeToShow;
   return (
     <div className="basic-typewriter-wrapper">
       <div className="example-typewriter-wrapper">
@@ -67,50 +58,7 @@ const BasicTypewriter: React.FC = () => {
           {typedText}
         </div>
       </div>
-      <div className="example-typewriter-code-snippet-wrapper">
-        <div className="code-snippet-button-group">
-          <div>
-            <button
-              className="code-snippet-button"
-              id="view-code-button"
-              onClick={() => {
-                setCodeToShow(CODE.TSX);
-                setLanguage("typescript");
-              }}
-            >
-              View Code
-            </button>
-            <button
-              className="code-snippet-button"
-              id="view-css-button"
-              onClick={() => {
-                setCodeToShow(CODE.CSS);
-                setLanguage("css");
-              }}
-            >
-              CSS
-            </button>
-          </div>
-          <div>
-            <button className="code-snippet-button" id="copy-code-button">
-              Copy code
-            </button>
-          </div>
-        </div>
-        <div className="example-typewriter-code-snippet">
-          <SyntaxHighlighter
-            language={language}
-            style={style}
-            customStyle={customStyle}
-            lineProps={{
-              style: { wordBreak: "break-word", whiteSpace: "pre-wrap" },
-            }}
-            wrapLines={true}
-          >
-            {codeString}
-          </SyntaxHighlighter>
-        </div>
-      </div>
+      <CodeSnippet CSS={CODE.CSS} Code={CODE.TSX} />
     </div>
   );
 };
