@@ -23,8 +23,7 @@ const BasicTypewriter: React.FC = () => {
     TSX = `import { useTypewriter } from "use-typewriter-hook";
 
     const BasicTypewriter: React.FC = () => {
-      const targetText =
-        "Welcome to React useTypewriter. This is a basic typewriter. You can also display emojis, like this 😜 🤩 🥳 😍 !";
+      const targetText = "Welcome to React useTypewriter. This is a basic typewriter. You can also display emojis, like this 😜 🤩 🥳 😍 !";
       const { textValue: typedText, wrapperClassName } = useTypewriter({
         targetText: targetText,
         typingDelayMillis: 50,
@@ -93,7 +92,9 @@ const BasicTypewriter: React.FC = () => {
             </button>
           </div>
           <div>
-            <button className="code-snippet-button" id="copy-code-button">Copy code</button>
+            <button className="code-snippet-button" id="copy-code-button">
+              Copy code
+            </button>
           </div>
         </div>
         <div className="example-typewriter-code-snippet">
@@ -102,7 +103,7 @@ const BasicTypewriter: React.FC = () => {
             style={style}
             customStyle={customStyle}
             lineProps={{
-              style: { wordBreak: "break-all", whiteSpace: "pre-wrap" },
+              style: { wordBreak: "break-word", whiteSpace: "pre-wrap" },
             }}
             wrapLines={true}
           >
