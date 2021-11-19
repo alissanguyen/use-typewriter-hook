@@ -291,20 +291,15 @@ thead th:last-child {
   min-height: max-content;
 }
 .example-typewriter-code-snippet-wrapper {
-  background-color: rgb(32, 33, 35);
-  padding: 1rem;
-  padding-top: 2rem;
+  background-color: rgb(0, 0, 0);
+  padding: 1.5rem 1rem 0rem 1rem;
   border-radius: 0.6rem;
   margin-top: 1rem;
 }
 .example-typewriter-code-snippet {
   font-size: 15px;
   line-height: 24px;
-  white-space: pre-wrap;
-  word-break: break-word;
-  height: auto !important;
   color: white;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
 }
 .code-snippet-button-group {
   display: flex;
@@ -312,50 +307,61 @@ thead th:last-child {
   justify-content: space-between;
   margin-bottom: 1.5rem;
 }
-.code-snippet-button-code {
-  background-color: rgba(255, 255, 255, 0.959);
-  border-bottom-left-radius: 4px;
-  border-top-left-radius: 4px;
-  padding: 0.5rem 2rem 0.5rem 2rem;
-  font-family: inherit;
-  font-size: inherit;
-  color: #050505;
-  border: none;
-  border-right: solid 1px black;
-}
-.code-snippet-button-code:focus {
-  background-color: rgb(33, 187, 148);
-  color: #f9fcff;
-}
-.code-snippet-button-css {
-  background-color: rgba(255, 255, 255, 0.959);
-  border-bottom-right-radius: 4px;
-  border-top-right-radius: 4px;
-  border-left: solid 1px black;
-  padding: 0.5rem 2rem 0.5rem 2rem;
-  font-family: inherit;
-  font-size: inherit;
-  color: #050505;
+
+.code-snippet-button {
+  background: #5bf1cc;
+  box-shadow: 0 0 5px #62e0c1;
+  padding: 0.5rem 1.5rem;
+  margin-bottom: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue";
+  font-size: 14px;
+  color: black;
   border: none;
 }
-.code-snippet-button-css:focus {
-  background-color: rgb(33, 187, 148);
-  color: #f9fcff;
+#view-code-button {
+  border-bottom-left-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
+  border-right: solid 1px rgb(0, 0, 0);
+  margin-left: 1rem;
 }
-.code-snippet-copy-button {
-  background-color: rgba(255, 255, 255, 0.959);
+#view-code-button:hover {
+  background-color: #45b39d;
+  transform: scale(1.04);
+}
+#view-code-button:focus {
+  background-color: #45b39d;
+}
+#view-css-button {
+  border-bottom-right-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  border-left: solid 1px rgb(0, 0, 0);
+}
+#view-css-button:hover {
+  background-color: #45b39d;
+  transform: scale(1.04);
+}
+#view-css-button:focus {
+  background-color: #45b39d;
+}
+#copy-code-button {
   border-radius: 4px;
-  padding: 0.5rem 2rem 0.5rem 2rem;
-  font-family: inherit;
-  font-size: inherit;
-  color: #050505;
-  border: none;
+  transition: all 200ms ease 0s;
+  margin-right: 1rem;
 }
-.code-snippet-copy-button:active {
+#copy-code-button:hover {
+  transform: scale(1.04);
+}
+#copy-code-button:active {
   background-color: rgb(33, 187, 148);
   color: #f9fcff;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  /* transition: background 0.1s ease, color 0.1s ease; */
 }
+
 /* CUSTOM TYPEWRITER WITH BOLD, COLOR, AND HIGHLIGHT */
 .custom-typewriter-text {
   color: rgb(46, 46, 206);
