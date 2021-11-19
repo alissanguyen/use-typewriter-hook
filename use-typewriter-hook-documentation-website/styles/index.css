@@ -299,7 +299,6 @@ thead th:last-child {
 .example-typewriter-code-snippet {
   font-size: 15px;
   line-height: 24px;
-  color: white;
 }
 .code-snippet-button-group {
   display: flex;
@@ -354,7 +353,6 @@ thead th:last-child {
 }
 #copy-code-button:active {
   background-color: rgb(33, 187, 148);
-  color: #f9fcff;
   transition-property: all;
   transition-duration: 200ms;
   transition-timing-function: ease;
