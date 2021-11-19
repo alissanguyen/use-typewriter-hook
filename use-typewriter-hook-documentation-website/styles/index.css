@@ -80,6 +80,7 @@ header {
   align-self: flex-start;
   position: sticky;
   flex: 1;
+  min-width: 350px;
 }
 .navbar li {
   display: flex;
@@ -90,6 +91,7 @@ header {
 }
 .navbar-menu {
   padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .chapter-pointer {
@@ -122,7 +124,9 @@ header {
   font-weight: 400;
   color: rgb(10, 99, 151);
 }
-
+.nav-sub-link:hover {
+  font-weight: 400;
+}
 .navbar a {
   display: block;
   color: #4d4e53;

@@ -11,6 +11,7 @@ import TypewriterWithLoop from "../components/examples/TypewriterWithLoop";
 import Footer from "../components/Footer";
 import MethodsTable from "../components/MethodsTable";
 import OptionsTable from "../components/OptionsTable";
+import SubChapter from "../components/SubChapter";
 
 const DocumentationPage: React.FC = () => {
   const [chapterLocation, setChapterLocation] = React.useState<string>("");
@@ -116,6 +117,63 @@ const DocumentationPage: React.FC = () => {
               />
               <Chapter chapterName="Examples" hashUrl={chapterLocation} />
             </li>
+            <ul className="Examples-Chapter-menu">
+              <li>
+                <ChapterPointer
+                  chapterName="BasicTypewriterExample"
+                  hashUrl={chapterLocation}
+                />
+                <SubChapter
+                  hashUrl={chapterLocation}
+                  subChapterHref="BasicTypewriterExample"
+                  subChapterName="Basic Typewriter"
+                />
+              </li>
+              <li>
+                <ChapterPointer
+                  chapterName="CustomCursorTypewriter"
+                  hashUrl={chapterLocation}
+                />
+                <SubChapter
+                  hashUrl={chapterLocation}
+                  subChapterHref="CustomCursorTypewriter"
+                  subChapterName="Custom Cursor Typewriter"
+                />
+              </li>
+              <li>
+                <ChapterPointer
+                  chapterName="CustomTypewriter"
+                  hashUrl={chapterLocation}
+                />
+                <SubChapter
+                  hashUrl={chapterLocation}
+                  subChapterHref="CustomTypewriter"
+                  subChapterName="Custom Typewriter with Highlighted Text"
+                />
+              </li>
+              <li>
+                <ChapterPointer
+                  chapterName="TypewriterWithLoop"
+                  hashUrl={chapterLocation}
+                />
+                <SubChapter
+                  hashUrl={chapterLocation}
+                  subChapterHref="TypewriterWithLoop"
+                  subChapterName="Typewriter with Loop"
+                />
+              </li>
+              <li>
+                <ChapterPointer
+                  chapterName="BackspacingTypewriter"
+                  hashUrl={chapterLocation}
+                />
+                <SubChapter
+                  hashUrl={chapterLocation}
+                  subChapterHref="BackspacingTypewriter"
+                  subChapterName="Typewriter with Backspacing Effect"
+                />
+              </li>
+            </ul>
           </ul>
         </nav>
         <main className="main-doc">
@@ -193,24 +251,44 @@ const DocumentationPage: React.FC = () => {
           >
             <header className="documentation-page-header-5">Examples</header>
             <article>
-              <div className="documentation-example-single-wrapper">
+              <div
+                className="documentation-example-single-wrapper"
+                id="BasicTypewriterExample"
+                ref={updateElementInChaptersRef("BasicTypewriterExample")}
+              >
                 <h3>Basic Typewriter</h3>
                 <BasicTypewriter />
               </div>
-              <div className="documentation-example-single-wrapper">
+              <div
+                className="documentation-example-single-wrapper"
+                id="CustomCursorTypewriter"
+                ref={updateElementInChaptersRef("CustomCursorTypewriter")}
+              >
                 <h3>Typewriter with Custom Cursor</h3>
                 <CustomCursorTypewriter />
               </div>
-              <div className="documentation-example-single-wrapper">
+              <div
+                className="documentation-example-single-wrapper"
+                id="CustomTypewriter"
+                ref={updateElementInChaptersRef("CustomTypewriter")}
+              >
                 <h3>Custom Typewriter with Highlighted Text</h3>
                 <CustomTypewriter />
               </div>
-              <div className="documentation-example-single-wrapper">
+              <div
+                className="documentation-example-single-wrapper"
+                id="TypewriterWithLoop"
+                ref={updateElementInChaptersRef("TypewriterWithLoop")}
+              >
                 <h3>Typewriter with Looping Effect</h3>
 
                 <TypewriterWithLoop />
               </div>
-              <div className="documentation-example-single-wrapper">
+              <div
+                className="documentation-example-single-wrapper"
+                id="BackspacingTypewriter"
+                ref={updateElementInChaptersRef("BackspacingTypewriter")}
+              >
                 <h3>Typewriter with Backspacing Effect</h3>
 
                 <PartialBackspaceTypewriter />

@@ -17,6 +17,7 @@ const CodeSnippet: React.FC<Props> = (props) => {
     maxWidth: "900px",
     border: "none",
     padding: "0 1rem",
+    overflowX: "hidden",
     fontFamily:
       "font-family: Andale Mono, AndaleMono, Lucida Console, monospace;",
   };
