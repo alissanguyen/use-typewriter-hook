@@ -21,7 +21,7 @@ const Home: NextPage = () => {
           <div className="app-name-wrapper">
             <Logo />
             <div>
-              <Link href="/documentation">
+              <Link href="/documentation" passHref>
                 <button className="documentation-button">
                   View Documentation
                 </button>

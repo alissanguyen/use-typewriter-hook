@@ -1,8 +1,6 @@
-import { useRouter } from "next/router";
 import * as React from "react";
 import AppName from "../components/AppName";
 import Chapter from "../components/Chapter";
-import ChapterPointer from "../components/ChapterPointer";
 import BasicTypewriter from "../components/examples/BasicTypewriter";
 import CustomCursorTypewriter from "../components/examples/CustomCursorTypewriter";
 import CustomTypewriter from "../components/examples/CustomTypewriter";
