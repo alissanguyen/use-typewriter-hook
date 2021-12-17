@@ -3,17 +3,29 @@ import * as React from "react";
 interface Props {
   chapterName: string;
   hashUrl: string;
+  updateHash: (id: string) => void;
 }
 
 const Chapter: React.FC<Props> = (props) => {
-  const shouldApplyCustomStyle = props.hashUrl.includes(props.chapterName);
+  const shouldApplySelectedClass = props.hashUrl.includes(props.chapterName);
   const chapter = props.chapterName;
   const chapterHref = "#" + chapter;
-  const customStyle = shouldApplyCustomStyle
-    ? { color: "#0070f3", fontWeight: "600" }
+
+  const selectedClass = shouldApplySelectedClass
+    ? { color: "#0070f3", fontWeight: 600 }
     : undefined;
+
+  const className = selectedClass ? "selected-navbar-link" : "";
   return (
-    <a className="nav-link" href={chapterHref} style={customStyle}>
+    <a
+      className={`nav-link ${className}`}
+      href={chapterHref}
+      style={selectedClass}
+      onClick={() => {
+        props.updateHash(chapter);
+        console.log("inchapter" + chapter);
+      }}
+    >
       {chapter}
     </a>
   );

@@ -10,7 +10,6 @@ const Logo: React.FC<Props> = ({}) => {
     autoStartDelay: 0,
     typingDelayMillis: 100,
     loopDelay: 500,
-    loop: true,
   });
 
   return <p className={`${wrapperClassName} app-name`}>{typedText}</p>;

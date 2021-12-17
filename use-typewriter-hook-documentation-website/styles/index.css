@@ -1,15 +1,29 @@
-.footer {
-  display: flex;
-  flex-direction: row;
-  padding: 1.5rem 2rem 1.5rem 2rem;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .home-page {
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 200px auto 200px;
+
+  flex: 1;
+  padding: 1.5rem 2rem 1.5rem 2rem;
+  border-top: 1px solid #eaeaea;
+}
+
+@media (max-width: 720px) {
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .footer > * {
+    margin-top: 1rem;
+  }
 }
 
 .home-page-footer {
@@ -31,11 +45,8 @@
 
 .documentation-button {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 3.5rem;
-  height: 2.81rem;
-  line-height: 2.8rem;
+  margin: auto;
+  padding: 1rem 3.5rem;
   border-radius: 7px;
   background-color: #0070f3;
   box-shadow: 0 4px 14px 0 rgb(0 118 255 / 39%);
@@ -43,6 +54,7 @@
   font-size: 16px;
   border: none;
   font-weight: 300;
+  cursor: pointer;
 }
 .documentation-button:hover {
   background-color: #3291ff;
@@ -88,9 +100,9 @@ header {
   align-items: center;
   list-style: none;
   width: 100%;
+  line-height: 10px;
 }
 .navbar-menu {
-  padding-left: 2rem;
   padding-right: 2rem;
 }
 
@@ -128,7 +140,6 @@ header {
   font-weight: 400;
 }
 .navbar a {
-  display: block;
   color: #4d4e53;
   padding: 1em 2em 1em 2em;
   font-weight: 300;
@@ -178,7 +189,11 @@ section article {
 }
 
 .documentation-page-header-1 {
+  color: white;
   background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  /* background: -webkit-linear-gradient(#f6d365 0%, #fda085 10%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
 }
 .documentation-page-header-2 {
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -310,7 +325,10 @@ thead th:last-child {
   justify-content: space-between;
   margin-bottom: 1.5rem;
 }
-
+code {
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace, serif;
+}
 .code-snippet-button {
   background: #5bf1cc;
   box-shadow: 0 0 5px #62e0c1;
@@ -376,4 +394,18 @@ thead th:last-child {
 
 .documentation-example-single-wrapper {
   margin-bottom: 3rem;
+}
+
+.selected-navbar-link::before {
+  content: "►";
+  margin-right: 1rem;
+}
+
+.selected-navbar-link {
+  display: flex;
+  align-items: center;
+}
+
+.footer_author {
+  text-align: center;
 }

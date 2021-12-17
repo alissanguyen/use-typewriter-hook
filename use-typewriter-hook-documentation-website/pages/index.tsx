@@ -3,7 +3,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Footer from "../components/Footer";
 import Logo from "../components/Logo";
-import Link from "../components/Link";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
@@ -18,11 +18,16 @@ const Home: NextPage = () => {
             />
             <link rel="icon" href="/favicon.ico" />
           </Head>
-          <div className="app-name-wrapper"></div>
-          <Logo />
-          <Link to="/documentation">
-            <button className="documentation-button">View Documentation</button>
-          </Link>
+          <div className="app-name-wrapper">
+            <Logo />
+            <div>
+              <Link href="/documentation">
+                <button className="documentation-button">
+                  View Documentation
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
         <div className="home-page-footer">
           <Footer />

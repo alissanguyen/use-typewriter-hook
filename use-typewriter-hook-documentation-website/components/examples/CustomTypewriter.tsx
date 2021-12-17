@@ -35,9 +35,9 @@ const CustomTypewriter: React.FC = () => {
     loop: false,
   });
 
-  // You can select as many words or phrases as you like to highlight/customize 
-  // their color/bold. Here as an example, we select one phrase and one word to
-  // customize
+  // You can select as many words or phrases as you like to  
+  // highlight/customize their color/bold. Here as an example, we select 
+  // one phrase and one word to customize
   const stringToSearch = "React useTypewriter";
   const stringToSearch2 = "highlight";
 
@@ -75,9 +75,9 @@ const createBoldAndHighlightedReactNodes = (
   const boldContents = str.slice(startIndex1, endIndex1);
   const highlightedContents = str.slice(startIndex2, endIndex2);
 
-  // Return everything from 0...startIndex of str as a string, return eveverthing 
-  // from startindex to endindex as a bolded span, return everything from endindex 
-  // to str.length as a string
+  // Return everything from 0...startIndex of str as a string, return 
+  // eveverthing from startindex to endindex as a bolded span, 
+  // return everything from endindex to str.length as a string
 
   return [
     str.slice(0, startIndex1),

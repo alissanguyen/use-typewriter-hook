@@ -63,6 +63,7 @@ const DocumentationPage: React.FC = () => {
 
       const currentScrollPosition = window.scrollY;
 
+      // TODO: Fix bug, find the smallest elements that is closest
       const elementThatIsClosest = chaptersArray.find(
         (chapter) => chapter.yPosition <= currentScrollPosition
       );
@@ -70,7 +71,7 @@ const DocumentationPage: React.FC = () => {
       if (!elementThatIsClosest) {
         return;
       }
-
+      console.log("closetchapter" + elementThatIsClosest.id);
       setChapterLocation(elementThatIsClosest.id);
     });
 
@@ -78,7 +79,7 @@ const DocumentationPage: React.FC = () => {
     return () => {
       window.removeEventListener("hashchange", onHashChanged);
     };
-  }, []);
+  }, [chapterLocation]);
 
   return (
     <div>
@@ -89,40 +90,42 @@ const DocumentationPage: React.FC = () => {
         <nav className="navbar">
           <ul className="navbar-menu">
             <li>
-              <ChapterPointer
+              <Chapter
                 chapterName="Introduction"
                 hashUrl={chapterLocation}
+                updateHash={setChapterLocation}
               />
-              <Chapter chapterName="Introduction" hashUrl={chapterLocation} />
             </li>
             <li>
-              <ChapterPointer
+              <Chapter
                 chapterName="Installation"
                 hashUrl={chapterLocation}
+                updateHash={setChapterLocation}
               />
-              <Chapter chapterName="Installation" hashUrl={chapterLocation} />
             </li>
             <li>
-              <ChapterPointer chapterName="Options" hashUrl={chapterLocation} />
-              <Chapter chapterName="Options" hashUrl={chapterLocation} />
+              <Chapter
+                chapterName="Options"
+                hashUrl={chapterLocation}
+                updateHash={setChapterLocation}
+              />
             </li>
             <li>
-              <ChapterPointer chapterName="Methods" hashUrl={chapterLocation} />
-              <Chapter chapterName="Methods" hashUrl={chapterLocation} />
+              <Chapter
+                chapterName="Methods"
+                hashUrl={chapterLocation}
+                updateHash={setChapterLocation}
+              />
             </li>
             <li>
-              <ChapterPointer
+              <Chapter
                 chapterName="Examples"
                 hashUrl={chapterLocation}
+                updateHash={setChapterLocation}
               />
-              <Chapter chapterName="Examples" hashUrl={chapterLocation} />
             </li>
             <ul className="Examples-Chapter-menu">
               <li>
-                <ChapterPointer
-                  chapterName="BasicTypewriterExample"
-                  hashUrl={chapterLocation}
-                />
                 <SubChapter
                   hashUrl={chapterLocation}
                   subChapterHref="BasicTypewriterExample"
@@ -130,10 +133,6 @@ const DocumentationPage: React.FC = () => {
                 />
               </li>
               <li>
-                <ChapterPointer
-                  chapterName="CustomCursorTypewriter"
-                  hashUrl={chapterLocation}
-                />
                 <SubChapter
                   hashUrl={chapterLocation}
                   subChapterHref="CustomCursorTypewriter"
@@ -141,10 +140,6 @@ const DocumentationPage: React.FC = () => {
                 />
               </li>
               <li>
-                <ChapterPointer
-                  chapterName="CustomTypewriter"
-                  hashUrl={chapterLocation}
-                />
                 <SubChapter
                   hashUrl={chapterLocation}
                   subChapterHref="CustomTypewriter"
@@ -152,10 +147,6 @@ const DocumentationPage: React.FC = () => {
                 />
               </li>
               <li>
-                <ChapterPointer
-                  chapterName="TypewriterWithLoop"
-                  hashUrl={chapterLocation}
-                />
                 <SubChapter
                   hashUrl={chapterLocation}
                   subChapterHref="TypewriterWithLoop"
@@ -163,10 +154,6 @@ const DocumentationPage: React.FC = () => {
                 />
               </li>
               <li>
-                <ChapterPointer
-                  chapterName="BackspacingTypewriter"
-                  hashUrl={chapterLocation}
-                />
                 <SubChapter
                   hashUrl={chapterLocation}
                   subChapterHref="BackspacingTypewriter"
@@ -177,12 +164,12 @@ const DocumentationPage: React.FC = () => {
           </ul>
         </nav>
         <main className="main-doc">
-          <section
-            className="main-section"
-            id="Introduction"
-            ref={updateElementInChaptersRef("Introduction")}
-          >
-            <header className="documentation-page-header-1">
+          <section className="main-section">
+            <header
+              className="documentation-page-header-1"
+              id="Introduction"
+              ref={updateElementInChaptersRef("Introduction")}
+            >
               Introduction
             </header>
             <article>
@@ -194,12 +181,12 @@ const DocumentationPage: React.FC = () => {
               </p>
             </article>
           </section>
-          <section
-            className="main-section"
-            id="Installation"
-            ref={updateElementInChaptersRef("Installation")}
-          >
-            <header className="documentation-page-header-2">
+          <section className="main-section">
+            <header
+              className="documentation-page-header-2"
+              id="Installation"
+              ref={updateElementInChaptersRef("Installation")}
+            >
               Installation
             </header>
             <article>
@@ -215,12 +202,14 @@ const DocumentationPage: React.FC = () => {
               </pre>
             </article>
           </section>
-          <section
-            className="main-section"
-            id="Options"
-            ref={updateElementInChaptersRef("Options")}
-          >
-            <header className="documentation-page-header-3">Options</header>
+          <section className="main-section">
+            <header
+              className="documentation-page-header-3"
+              id="Options"
+              ref={updateElementInChaptersRef("Options")}
+            >
+              Options
+            </header>
             <article>
               <p>
                 <strong>useTypewriter</strong> has these options built-in:
@@ -228,12 +217,12 @@ const DocumentationPage: React.FC = () => {
               <OptionsTable />
             </article>
           </section>
-          <section
-            className="main-section"
-            id="Methods"
-            ref={updateElementInChaptersRef("Methods")}
-          >
-            <header className="documentation-page-header-4">
+          <section className="main-section">
+            <header
+              className="documentation-page-header-4"
+              id="Methods"
+              ref={updateElementInChaptersRef("Methods")}
+            >
               Methods (Functions)
             </header>
             <article>
@@ -244,53 +233,59 @@ const DocumentationPage: React.FC = () => {
               <MethodsTable />
             </article>
           </section>
-          <section
-            className="main-section"
-            id="Examples"
-            ref={updateElementInChaptersRef("Examples")}
-          >
-            <header className="documentation-page-header-5">Examples</header>
+          <section className="main-section">
+            <header
+              className="documentation-page-header-5"
+              id="Examples"
+              ref={updateElementInChaptersRef("Examples")}
+            >
+              Examples
+            </header>
             <article>
-              <div
-                className="documentation-example-single-wrapper"
-                id="BasicTypewriterExample"
-                ref={updateElementInChaptersRef("BasicTypewriterExample")}
-              >
-                <h3>Basic Typewriter</h3>
+              <div className="documentation-example-single-wrapper">
+                <h3
+                  id="BasicTypewriterExample"
+                  ref={updateElementInChaptersRef("BasicTypewriterExample")}
+                >
+                  Basic Typewriter
+                </h3>
                 <BasicTypewriter />
               </div>
-              <div
-                className="documentation-example-single-wrapper"
-                id="CustomCursorTypewriter"
-                ref={updateElementInChaptersRef("CustomCursorTypewriter")}
-              >
-                <h3>Typewriter with Custom Cursor</h3>
+              <div className="documentation-example-single-wrapper">
+                <h3
+                  id="CustomCursorTypewriter"
+                  ref={updateElementInChaptersRef("CustomCursorTypewriter")}
+                >
+                  Typewriter with Custom Cursor
+                </h3>
                 <CustomCursorTypewriter />
               </div>
-              <div
-                className="documentation-example-single-wrapper"
-                id="CustomTypewriter"
-                ref={updateElementInChaptersRef("CustomTypewriter")}
-              >
-                <h3>Custom Typewriter with Highlighted Text</h3>
+              <div className="documentation-example-single-wrapper">
+                <h3
+                  id="CustomTypewriter"
+                  ref={updateElementInChaptersRef("CustomTypewriter")}
+                >
+                  Custom Typewriter with Highlighted Text
+                </h3>
                 <CustomTypewriter />
               </div>
-              <div
-                className="documentation-example-single-wrapper"
-                id="TypewriterWithLoop"
-                ref={updateElementInChaptersRef("TypewriterWithLoop")}
-              >
-                <h3>Typewriter with Looping Effect</h3>
+              <div className="documentation-example-single-wrapper">
+                <h3
+                  id="TypewriterWithLoop"
+                  ref={updateElementInChaptersRef("TypewriterWithLoop")}
+                >
+                  Typewriter with Looping Effect
+                </h3>
 
                 <TypewriterWithLoop />
               </div>
-              <div
-                className="documentation-example-single-wrapper"
-                id="BackspacingTypewriter"
-                ref={updateElementInChaptersRef("BackspacingTypewriter")}
-              >
-                <h3>Typewriter with Backspacing Effect</h3>
-
+              <div className="documentation-example-single-wrapper">
+                <h3
+                  id="BackspacingTypewriter"
+                  ref={updateElementInChaptersRef("BackspacingTypewriter")}
+                >
+                  Typewriter with Backspacing Effect
+                </h3>
                 <PartialBackspaceTypewriter />
               </div>
             </article>

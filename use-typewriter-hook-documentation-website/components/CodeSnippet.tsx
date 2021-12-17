@@ -19,7 +19,7 @@ const CodeSnippet: React.FC<Props> = (props) => {
     padding: "0 1rem",
     overflowX: "hidden",
     fontFamily:
-      "font-family: Andale Mono, AndaleMono, Lucida Console, monospace;",
+      "Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif",
   };
 
   return (
