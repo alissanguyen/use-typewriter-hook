@@ -13,10 +13,10 @@ You can install React useTypewriter with one simple command
 ```shell
 
 # with npm
-npm i react-usetypewriter
+npm i use-typewriter-hook
 
 # with yarn
-yarn add react-usetypewriter
+yarn add use-typewriter-hook
 
 ```
 
