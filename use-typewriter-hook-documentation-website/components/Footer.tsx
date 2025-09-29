@@ -36,7 +36,7 @@ const Footer: React.FC<Props> = ({}) => {
           </span>
         </a>
         <a
-          href="https://www.linkedin.com/in/tam-pmnguyen/"
+          href="https://www.linkedin.com/in/alissanguyen-com/"
           target="_blank"
           rel="noreferrer"
         >

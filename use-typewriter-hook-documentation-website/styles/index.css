@@ -14,7 +14,12 @@
 }
 
 @media (max-width: 720px) {
+  body {
+    padding: 0;
+  }
+
   .footer {
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
