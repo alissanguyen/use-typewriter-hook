@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.production.json",
+  "compilerOptions": {
+    "ignoreDeprecations": "undefined"
+  }
+}

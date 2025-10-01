@@ -6,7 +6,7 @@
   "types": "build/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "tsc --project tsconfig.production.json",
+    "build": "tsc --project tsconfig.build.json",
     "eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "do-publish": "npm run build && cp package.production.json ./build/package.json  && cp ../README.md ./build && cd build &&  npm publish"
   },
