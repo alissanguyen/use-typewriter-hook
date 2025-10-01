@@ -5,21 +5,12 @@ interface Props {
     subChapterHref: string;
     subChapterName: string;
     closeMobileMenu: () => void;
+    onNavClick: (chapterName: string) => void;
 }
 
-const SubChapter: React.FC<Props> = ({ hashUrl, subChapterHref, subChapterName, closeMobileMenu }) => {
+const SubChapter: React.FC<Props> = ({ hashUrl, subChapterHref, subChapterName, closeMobileMenu, onNavClick }) => {
     const handleClick = () => {
-        const element = document.getElementById(subChapterHref);
-        if (element) {
-            const headerHeight = 120; // Account for sticky header + some padding
-            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = elementPosition - headerHeight;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
+        onNavClick(subChapterHref);
         closeMobileMenu();
     };
 

@@ -20,12 +20,13 @@ const DocumentationPage: React.FC = () => {
   const [chapterLocation, setChapterLocation] = React.useState<string>("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [isExamplesExpanded, setIsExamplesExpanded] = React.useState(true);
+  const [isScrollingProgrammatically, setIsScrollingProgrammatically] = React.useState(false);
   const chaptersRef = React.useRef<Record<string, number>>({});
 
   const updateElementInChaptersRef =
     (id: string) => (element: Element | null) => {
       if (element) {
-        chaptersRef.current[id] = element.getBoundingClientRect().y;
+        chaptersRef.current[id] = (element as HTMLElement).offsetTop; // Changed from getBoundingClientRect().y
       }
     };
 
@@ -43,23 +44,27 @@ const DocumentationPage: React.FC = () => {
     };
 
     const handleScroll = () => {
+      // Skip scroll handling during programmatic scrolling
+      if (isScrollingProgrammatically) return;
+      
       const chaptersArray = Object.entries(chaptersRef.current)
         .map(([key, value]) => ({
           id: key,
           yPosition: value,
         }))
-        .sort((a, b) => b.yPosition - a.yPosition);
-
-      const currentScrollPosition = window.scrollY + 100;
-
-      const elementThatIsClosest = chaptersArray.find(
+        .sort((a, b) => a.yPosition - b.yPosition);
+    
+      const currentScrollPosition = window.scrollY + 120; // Header height + buffer
+    
+      // Find the section that's currently in view
+      const elementThatIsClosest = chaptersArray.reverse().find(
         (chapter) => chapter.yPosition <= currentScrollPosition
       );
-
+    
       if (elementThatIsClosest && elementThatIsClosest.id !== chapterLocation) {
         setChapterLocation(elementThatIsClosest.id);
       }
-    };
+    };    
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("hashchange", onHashChanged);
@@ -72,6 +77,32 @@ const DocumentationPage: React.FC = () => {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+  };
+
+  const handleNavClick = (chapterName: string) => {
+    setIsScrollingProgrammatically(true);
+    setChapterLocation(chapterName);
+
+    const element = document.getElementById(chapterName);
+    if (element) {
+      const headerHeight = 80;
+      const elementPosition = element.offsetTop;
+      const offsetPosition = elementPosition - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+
+      // Re-enable scroll detection after scroll animation completes
+      setTimeout(() => {
+        setIsScrollingProgrammatically(false);
+      }, 1000);
+    } else {
+      setIsScrollingProgrammatically(false);
+    }
+
+    closeMobileMenu();
   };
 
   return (
@@ -107,32 +138,33 @@ const DocumentationPage: React.FC = () => {
                     <Chapter
                       chapterName="Introduction"
                       hashUrl={chapterLocation}
-                      updateHash={setChapterLocation}
+                      // updateHash={setChapterLocation}
                       closeMobileMenu={closeMobileMenu}
+                      onNavClick={handleNavClick}
                     />
                   </li>
                   <li>
                     <Chapter
                       chapterName="Installation"
                       hashUrl={chapterLocation}
-                      updateHash={setChapterLocation}
                       closeMobileMenu={closeMobileMenu}
+                      onNavClick={handleNavClick}
                     />
                   </li>
                   <li>
                     <Chapter
                       chapterName="Options"
                       hashUrl={chapterLocation}
-                      updateHash={setChapterLocation}
                       closeMobileMenu={closeMobileMenu}
+                      onNavClick={handleNavClick}
                     />
                   </li>
                   <li>
                     <Chapter
                       chapterName="Methods"
                       hashUrl={chapterLocation}
-                      updateHash={setChapterLocation}
                       closeMobileMenu={closeMobileMenu}
+                      onNavClick={handleNavClick}
                     />
                   </li>
                   <li>
@@ -153,6 +185,7 @@ const DocumentationPage: React.FC = () => {
                               subChapterHref="BasicTypewriterExample"
                               subChapterName="Basic Typewriter"
                               closeMobileMenu={closeMobileMenu}
+                              onNavClick={handleNavClick}
                             />
                           </li>
                           <li>
@@ -161,6 +194,7 @@ const DocumentationPage: React.FC = () => {
                               subChapterHref="CustomCursorTypewriter"
                               subChapterName="Custom Cursor"
                               closeMobileMenu={closeMobileMenu}
+                              onNavClick={handleNavClick}
                             />
                           </li>
                           <li>
@@ -169,6 +203,7 @@ const DocumentationPage: React.FC = () => {
                               subChapterHref="CustomTypewriter"
                               subChapterName="Highlighted Text"
                               closeMobileMenu={closeMobileMenu}
+                              onNavClick={handleNavClick}
                             />
                           </li>
                           <li>
@@ -177,6 +212,7 @@ const DocumentationPage: React.FC = () => {
                               subChapterHref="TypewriterWithLoop"
                               subChapterName="Looping Effect"
                               closeMobileMenu={closeMobileMenu}
+                              onNavClick={handleNavClick}
                             />
                           </li>
                           <li>
@@ -185,6 +221,7 @@ const DocumentationPage: React.FC = () => {
                               subChapterHref="BackspacingTypewriter"
                               subChapterName="Backspace Effect"
                               closeMobileMenu={closeMobileMenu}
+                              onNavClick={handleNavClick}
                             />
                           </li>
                         </ul>
