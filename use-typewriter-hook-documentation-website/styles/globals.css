@@ -183,3 +183,23 @@ a {
 * {
   margin: 0;
 }
+
+
+/* Scrollbar styling for code snippets */
+.code-snippet-content pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.code-snippet-content pre::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+.code-snippet-content pre::-webkit-scrollbar-thumb {
+  background: var(--border-secondary);
+  border-radius: 4px;
+}
+
+.code-snippet-content pre::-webkit-scrollbar-thumb:hover {
+  background: var(--text-quaternary);
+}

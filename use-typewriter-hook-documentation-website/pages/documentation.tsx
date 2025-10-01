@@ -1,6 +1,6 @@
 import * as React from "react";
 import AppName from "../components/AppName";
-import { Menu, X, ChevronDown, ChevronRight, Moon, Sun } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, Moon, Sun, Check, Copy } from "lucide-react";
 import BasicTypewriter from "../components/examples/BasicTypewriter";
 import CustomCursorTypewriter from "../components/examples/CustomCursorTypewriter";
 import CustomTypewriter from "../components/examples/CustomTypewriter";
@@ -17,11 +17,22 @@ import { ThemeProvider } from "../components/ThemeProvider";
 
 
 const DocumentationPage: React.FC = () => {
+  const [copiedCommand, setCopiedCommand] = React.useState<string | null>(null);
   const [chapterLocation, setChapterLocation] = React.useState<string>("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [isExamplesExpanded, setIsExamplesExpanded] = React.useState(true);
   const [isScrollingProgrammatically, setIsScrollingProgrammatically] = React.useState(false);
   const chaptersRef = React.useRef<Record<string, number>>({});
+
+  const copyToClipboard = async (text: string, commandId: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedCommand(commandId);
+      setTimeout(() => setCopiedCommand(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
 
   const updateElementInChaptersRef =
     (id: string) => (element: Element | null) => {
@@ -46,25 +57,25 @@ const DocumentationPage: React.FC = () => {
     const handleScroll = () => {
       // Skip scroll handling during programmatic scrolling
       if (isScrollingProgrammatically) return;
-      
+
       const chaptersArray = Object.entries(chaptersRef.current)
         .map(([key, value]) => ({
           id: key,
           yPosition: value,
         }))
         .sort((a, b) => a.yPosition - b.yPosition);
-    
+
       const currentScrollPosition = window.scrollY + 120; // Header height + buffer
-    
+
       // Find the section that's currently in view
       const elementThatIsClosest = chaptersArray.reverse().find(
         (chapter) => chapter.yPosition <= currentScrollPosition
       );
-    
+
       if (elementThatIsClosest && elementThatIsClosest.id !== chapterLocation) {
         setChapterLocation(elementThatIsClosest.id);
       }
-    };    
+    };
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("hashchange", onHashChanged);
@@ -280,12 +291,30 @@ const DocumentationPage: React.FC = () => {
                     <div className="install-commands">
                       <div className="install-option">
                         <p className="install-label">With npm:</p>
-                        <pre className="install-code">npm i use-typewriter-hook</pre>
+                        <div className="install-code-wrapper">
+                          <pre className="install-code">npm i use-typewriter-hook</pre>
+                          <button
+                            onClick={() => copyToClipboard('npm i use-typewriter-hook', 'npm')}
+                            className="install-copy-button"
+                            title="Copy command"
+                          >
+                            {copiedCommand === 'npm' ? <Check size={16} /> : <Copy size={16} />}
+                          </button>
+                        </div>
                       </div>
 
                       <div className="install-option">
                         <p className="install-label">With yarn:</p>
-                        <pre className="install-code">yarn add use-typewriter-hook</pre>
+                        <div className="install-code-wrapper">
+                          <pre className="install-code">yarn add use-typewriter-hook</pre>
+                          <button
+                            onClick={() => copyToClipboard('yarn add use-typewriter-hook', 'yarn')}
+                            className="install-copy-button"
+                            title="Copy command"
+                          >
+                            {copiedCommand === 'yarn' ? <Check size={16} /> : <Copy size={16} />}
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>

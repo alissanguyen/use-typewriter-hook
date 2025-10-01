@@ -543,6 +543,9 @@ body {
   line-height: 1.5 !important;
   padding: 16px !important;
 }
+.code-snippet-content pre * { 
+  background-color: var(--code-bg) !important;
+}
 
 .code-snippet-content code {
   font-family: "Google Sans Code", monospace !important;
@@ -698,6 +701,7 @@ body {
     max-width: 100vw;
   }
   .sidebar {
+    background-color: var(--bg-primary);
     position: fixed;
     top: 64px;
     left: 0;
@@ -831,4 +835,80 @@ body {
   .code-snippet-container {
     max-width: calc(100vw - 16px);
   }
+}
+
+
+/* Install Code Wrapper */
+.install-code-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--code-bg);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  justify-content: space-between;
+}
+
+.install-copy-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  color: var(--code-text);
+  cursor: pointer;
+  border-radius: 6px;
+  margin-right: 8px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.install-copy-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 2px var(--accent-primary);
+  /* color: var(--text-primary); */
+}
+
+.install-copy-button:focus {
+  outline: none;
+}
+
+/* Copy button in code snippet tabs */
+.copy-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  border-radius: 6px;
+  margin-right: 8px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.copy-button:hover {
+  color: var(--accent-primary);
+}
+
+.copy-button:focus {
+  outline: none;
+}
+.code-snippet-tabs {
+  display: flex;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-secondary);
+  overflow-x: auto;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  align-items: center;
+  justify-content: space-between; /* This was added */
+}
+
+.tab-buttons-group { /* This was added */
+  display: flex;
 }
