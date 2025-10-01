@@ -666,8 +666,22 @@ body {
 
 /* Mobile Responsiveness */
 @media (max-width: 1023px) {
+  .header-inner {
+    display: flex
+;
+    font-weight: 800;
+    font-size: 1.8rem;
+    justify-content: space-between;
+    width: 92vw;
+}
   .mobile-menu-button {
     display: block;
+  }
+  .sidebar-open {
+    margin-top: 1rem;
+  }
+  .main-inner {
+    margin-top: 1rem;
   }
   .footer {
     display: flex;
