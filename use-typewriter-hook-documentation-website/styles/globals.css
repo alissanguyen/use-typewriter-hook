@@ -203,3 +203,9 @@ a {
 .code-snippet-content pre::-webkit-scrollbar-thumb:hover {
   background: var(--text-quaternary);
 }
+
+.footer_icons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
