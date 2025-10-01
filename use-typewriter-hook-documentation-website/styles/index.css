@@ -1,8 +1,14 @@
-/* Reset and base styles */
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  --main-table-color: #5f636b;
+}
+.google-sans-code {
+  font-family: "Google Sans Code", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 body {
@@ -170,6 +176,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 40;
+  padding: 10px 10px;
 }
 
 .header-inner {
@@ -253,6 +260,7 @@ body {
 }
 
 .sidebar-content {
+  margin-top: 1rem;
   padding: 24px;
 }
 
@@ -375,9 +383,9 @@ body {
 }
 
 .example-heading {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
-  color: #111827;
+  color: #1d86fe;
   margin-bottom: 16px;
 }
 
@@ -445,12 +453,13 @@ body {
 }
 
 .example-typewriter-wrapper {
-  background-color: #f9fafb;
+  font-family: "Google Sans Code", monospace;
+  background-color: #f6f7f9b8;
   padding: 20px;
   border-radius: 8px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e5e7eba7;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
   margin-bottom: 16px;
-  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
   font-size: 16px;
   line-height: 1.5;
   min-height: 60px;
@@ -498,7 +507,7 @@ body {
   padding: 8px 16px;
   background: none;
   border: none;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: #6b7280;
   text-transform: uppercase;
@@ -540,7 +549,8 @@ body {
 }
 
 .code-snippet-content code {
-  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace !important;
+  font-family: "Google Sans Code", monospace !important;
+  font-weight: 100;
   font-size: 14px !important;
   white-space: pre !important;
   word-wrap: break-word !important;
@@ -584,7 +594,7 @@ body {
 
 .options-table thead,
 .methods-table thead {
-  background-color: #f9fafb;
+  background-color: #e8eaed;
 }
 
 .options-table th,
@@ -593,7 +603,7 @@ body {
   text-align: left;
   font-size: 12px;
   font-weight: 500;
-  color: #6b7280;
+  color: var(--main-table-color);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   border-bottom: 1px solid #d1d5db;
@@ -622,7 +632,7 @@ body {
   background-color: #f3f4f6;
   padding: 2px 4px;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 13px;
   font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
 }
 .app-name-wrapper {
@@ -805,11 +815,6 @@ body {
   }
 }
 
-.header {
-  position: relative;
-  top: 0;
-  padding: 10px 10px;
-}
 .use-typewriter-cursor:after {
   height: 2.2rem;
   margin-left: 2px;

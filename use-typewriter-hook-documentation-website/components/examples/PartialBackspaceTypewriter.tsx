@@ -32,7 +32,8 @@ const PartialBackspaceTypewriter: React.FC = () => {
   const { textValue: typedText, wrapperClassName } = useTypewriter({
     targetText: targetText,
     typingDelayMillis: 50,
-    loop: false,
+    loop: true,
+    loopDelay: 500,
   });
   return (
     <div className="partial-backspace-typewriter-wrapper">
@@ -54,7 +55,8 @@ export default PartialBackspaceTypewriter;`,
   const { textValue: typedText, wrapperClassName } = useTypewriter({
     targetText: targetText,
     typingDelayMillis: 50,
-    loop: false,
+    loop: true,
+    loopDelay: 500,
   });
   return (
     <div className="partial-backspace-typewriter-wrapper">

@@ -100,6 +100,7 @@ const DocumentationPage: React.FC = () => {
                     chapterName="Introduction"
                     hashUrl={chapterLocation}
                     updateHash={setChapterLocation}
+                    closeMobileMenu={closeMobileMenu}
                   />
                 </li>
                 <li>
@@ -107,6 +108,7 @@ const DocumentationPage: React.FC = () => {
                     chapterName="Installation"
                     hashUrl={chapterLocation}
                     updateHash={setChapterLocation}
+                    closeMobileMenu={closeMobileMenu}
                   />
                 </li>
                 <li>
@@ -114,6 +116,7 @@ const DocumentationPage: React.FC = () => {
                     chapterName="Options"
                     hashUrl={chapterLocation}
                     updateHash={setChapterLocation}
+                    closeMobileMenu={closeMobileMenu}
                   />
                 </li>
                 <li>
@@ -121,6 +124,7 @@ const DocumentationPage: React.FC = () => {
                     chapterName="Methods"
                     hashUrl={chapterLocation}
                     updateHash={setChapterLocation}
+                    closeMobileMenu={closeMobileMenu}
                   />
                 </li>
                 <li>
@@ -140,6 +144,7 @@ const DocumentationPage: React.FC = () => {
                             hashUrl={chapterLocation}
                             subChapterHref="BasicTypewriterExample"
                             subChapterName="Basic Typewriter"
+                            closeMobileMenu={closeMobileMenu}
                           />
                         </li>
                         <li>
@@ -147,6 +152,7 @@ const DocumentationPage: React.FC = () => {
                             hashUrl={chapterLocation}
                             subChapterHref="CustomCursorTypewriter"
                             subChapterName="Custom Cursor"
+                            closeMobileMenu={closeMobileMenu}
                           />
                         </li>
                         <li>
@@ -154,6 +160,7 @@ const DocumentationPage: React.FC = () => {
                             hashUrl={chapterLocation}
                             subChapterHref="CustomTypewriter"
                             subChapterName="Highlighted Text"
+                            closeMobileMenu={closeMobileMenu}
                           />
                         </li>
                         <li>
@@ -161,6 +168,7 @@ const DocumentationPage: React.FC = () => {
                             hashUrl={chapterLocation}
                             subChapterHref="TypewriterWithLoop"
                             subChapterName="Looping Effect"
+                            closeMobileMenu={closeMobileMenu}
                           />
                         </li>
                         <li>
@@ -168,6 +176,7 @@ const DocumentationPage: React.FC = () => {
                             hashUrl={chapterLocation}
                             subChapterHref="BackspacingTypewriter"
                             subChapterName="Backspace Effect"
+                            closeMobileMenu={closeMobileMenu}
                           />
                         </li>
                       </ul>
