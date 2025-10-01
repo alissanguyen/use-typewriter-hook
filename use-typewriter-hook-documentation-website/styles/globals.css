@@ -37,3 +37,115 @@ a {
 .documentation-page-content-wrapper {
   display: flex;
 }
+ 
+
+.typewriter-header {
+margin-bottom: 48px;
+}
+
+.typewriter-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.typewriter-subtitle {
+  font-size: 1.25rem;
+    color: #e2e8f0;
+ font-weight: 300;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.documentation-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.documentation-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.documentation-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+  background: #2563eb;
+}
+
+.documentation-button:hover::before {
+  transform: translateX(100%);
+}
+
+.documentation-button:active {
+  transform: translateY(0);
+}
+
+/* Typewriter cursor animation for landing page */
+.use-typewriter-cursor:after {
+  content: "";
+  border-right: 3px solid #ffffff;
+  animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+ opacity: 1;
+}
+51%, 100% {
+  opacity: 0;
+}
+}
+
+/* Responsive styles for landing page */
+@media (max-width: 768px) {
+.typewriter-title {
+font-size: 3rem;
+}
+
+.typewriter-subtitle {
+font-size: 1.125rem;
+}
+
+.documentation-button {
+  padding: 14px 28px;
+font-size: 1rem;
+}
+}
+
+@media (max-width: 480px) {
+.typewriter-title {
+font-size: 2.5rem;
+}
+.typewriter-subtitle {
+font-size: 1rem;
+padding: 0 16px;
+}
+.documentation-button {
+padding: 12px 24px;
+font-size: 0.9rem;
+}
+}
+
+ /* Reset and base styles */
+ * {
+   margin: 0;}

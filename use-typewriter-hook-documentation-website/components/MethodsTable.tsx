@@ -13,14 +13,14 @@ const MethodsTable: React.FC = () => {
         </thead>
         <tbody className="table-body">
           <tr className="first-row">
-            <td className="first-column">pause</td>
+            <td className="first-column"><code>pause</code></td>
             <td className="second-column">-</td>
             <td className="third-column">
               Pause the typewriter effect on calling.
             </td>
           </tr>
           <tr className="second-row">
-            <td className="first-column">start</td>
+            <td className="first-column"><code>start</code></td>
             <td className="second-column">-</td>
             <td className="third-column">
               Start the typewriter effect on calling.

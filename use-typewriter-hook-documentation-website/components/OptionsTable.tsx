@@ -14,7 +14,7 @@ const OptionsTable: React.FC = () => {
         </thead>
         <tbody className="table-body">
           <tr className="first-row">
-            <td className="first-column">targetText</td>
+            <td className="first-column"><code>targetText</code></td>
             <td className="second-column">String or String[]</td>
             <td className="third-column">"" (empty string)</td>
             <td className="fourth-column">
@@ -22,15 +22,15 @@ const OptionsTable: React.FC = () => {
             </td>
           </tr>
           <tr className="second-row">
-            <td className="first-column">autoStartDelay</td>
+            <td className="first-column"><code>autoStartDelay</code></td>
             <td className="second-column">Number</td>
             <td className="third-column">100ms</td>
             <td className="fourth-column">
-              Amout of milliseconds delay at the start of the typewriter effect.
+              Amount of milliseconds delay at the start of the typewriter effect.
             </td>
           </tr>
           <tr className="third-row">
-            <td className="first-column">typingDelayMillis</td>
+            <td className="first-column"><code>typingDelayMillis</code></td>
             <td className="second-column">Number</td>
             <td className="third-column">100ms</td>
             <td className="fourth-column">
@@ -38,7 +38,7 @@ const OptionsTable: React.FC = () => {
             </td>
           </tr>
           <tr className="fourth-row">
-            <td className="first-column">loop</td>
+            <td className="first-column"><code>loop</code></td>
             <td className="second-column">Boolean</td>
             <td className="third-column">false</td>
             <td className="fourth-column">
@@ -46,7 +46,7 @@ const OptionsTable: React.FC = () => {
             </td>
           </tr>
           <tr className="fifth-row">
-            <td className="first-column">loopDelay</td>
+            <td className="first-column"><code>loopDelay</code></td>
             <td className="second-column">Number</td>
             <td className="third-column">100ms</td>
             <td className="fourth-column">
@@ -54,7 +54,7 @@ const OptionsTable: React.FC = () => {
             </td>
           </tr>
           <tr className="sixth-row">
-            <td className="first-column">wrapperClassName</td>
+            <td className="first-column"><code>wrapperClassName</code></td>
             <td className="second-column">String</td>
             <td className="third-column">'use-typewriter-cursor'</td>
             <td className="fourth-column">

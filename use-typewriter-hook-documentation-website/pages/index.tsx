@@ -2,8 +2,8 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Footer from "../components/Footer";
-import Logo from "../components/Logo";
 import Link from "next/link";
+import { useTypewriter } from "use-typewriter-hook";
 
 const Home: NextPage = () => {
   return (
@@ -38,3 +38,15 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+const Logo: React.FC = ({}) => {
+  const targetText = "useTypewriter";
+  const { textValue: typedText, wrapperClassName } = useTypewriter({
+    targetText: targetText,
+    autoStartDelay: 0,
+    typingDelayMillis: 100,
+    loopDelay: 500,
+  });
+
+  return <p className={`${wrapperClassName} app-name`}>{typedText}</p>;
+};

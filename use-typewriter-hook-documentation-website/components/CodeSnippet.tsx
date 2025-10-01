@@ -1,70 +1,62 @@
 import * as React from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { solarizedlight as style } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { coldarkDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 interface Props {
   CSS: string;
   Code: string;
 }
 
-const CodeSnippet: React.FC<Props> = (props) => {
-  const [codeToShow, setCodeToShow] = React.useState(props.Code);
-  const [language, setLanguage] = React.useState("typescript");
-
-  const customStyle = {
-    backgroundColor: "transparent",
-    filter: "hue-rotate(-20deg) contrast(150%) brightness(1.5)",
-    maxWidth: "900px",
-    border: "none",
-    padding: "0 1rem",
-    overflowX: "hidden",
-    fontFamily:
-      "Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif",
-  };
+const CodeSnippet: React.FC<Props> = ({ CSS, Code }) => {
+  const [activeTab, setActiveTab] = React.useState<'tsx' | 'css'>('tsx');
 
   return (
-    <div className="example-typewriter-code-snippet-wrapper">
-      <div className="code-snippet-button-group">
-        <div>
+    <div className="code-snippet-container">
+      <div className="code-snippet-tabs">
+        <button
+          onClick={() => setActiveTab('tsx')}
+          className={`tab-button ${activeTab === 'tsx' ? 'tab-button-active' : ''}`}
+        >
+          TSX
+        </button>
+        {CSS && (
           <button
-            className="code-snippet-button"
-            id="view-code-button"
-            onClick={() => {
-              setCodeToShow(props.Code);
-              setLanguage("typescript");
-            }}
-          >
-            View Code
-          </button>
-          <button
-            className="code-snippet-button"
-            id="view-css-button"
-            onClick={() => {
-              setCodeToShow(props.CSS);
-              setLanguage("css");
-            }}
+            onClick={() => setActiveTab('css')}
+            className={`tab-button ${activeTab === 'css' ? 'tab-button-active' : ''}`}
           >
             CSS
           </button>
-        </div>
-        <div>
-          <button className="code-snippet-button" id="copy-code-button">
-            Copy code
-          </button>
-        </div>
+        )}
       </div>
-      <div className="example-typewriter-code-snippet">
-        <SyntaxHighlighter
-          language={language}
-          style={style}
-          customStyle={customStyle}
-          lineProps={{
-            style: { wordBreak: "break-word", whiteSpace: "pre-wrap" },
-          }}
-          wrapLines={true}
-        >
-          {codeToShow}
-        </SyntaxHighlighter>
+      
+      <div className="code-snippet-content">
+        {activeTab === 'tsx' && (
+          <SyntaxHighlighter
+            language="typescript"
+            style={coldarkDark}
+            customStyle={{
+              margin: 0,
+              borderRadius: '0 0 6px 6px',
+              fontSize: '14px'
+            }}
+          >
+            {Code}
+          </SyntaxHighlighter>
+        )}
+        
+        {activeTab === 'css' && CSS && (
+          <SyntaxHighlighter
+            language="css"
+            style={coldarkDark}
+            customStyle={{
+              margin: 0,
+              borderRadius: '0 0 6px 6px',
+              fontSize: '14px'
+            }}
+          >
+            {CSS}
+          </SyntaxHighlighter>
+        )}
       </div>
     </div>
   );

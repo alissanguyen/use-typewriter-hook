@@ -3,24 +3,20 @@ import Image from "next/image";
 import GitHubLogo from "./github.png";
 import LinkedInLogo from "./linkedin.png";
 import styles from "../styles/Home.module.css";
-import Author from "./Author";
+import { useTypewriter } from "use-typewriter-hook";
 
-interface Props {}
+interface Props { }
 
-const Footer: React.FC<Props> = ({}) => {
+const Footer: React.FC<Props> = ({ }) => {
   return (
     <footer className="footer">
       <div className="footer_credits">
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <span>
           Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
+            <Image src="/vercel.svg" alt="Vercel Logo" className="vercel-logo" width={72} height={14} />
+          {" "}
+          <span className="copyright">Copyright © 2025</span>
+        </span>
       </div>
       <div className="footer_author">
         <Author />
@@ -55,3 +51,15 @@ const Footer: React.FC<Props> = ({}) => {
 };
 
 export default Footer;
+
+const Author: React.FC<Props> = ({ }) => {
+  const targetText = "From Alissa Nguyen with love. :)";
+  const { textValue: typedText, wrapperClassName } = useTypewriter({
+    targetText: targetText,
+    autoStartDelay: 100,
+    typingDelayMillis: 100,
+    loopDelay: 600,
+    loop: true,
+  });
+  return <div className={`${wrapperClassName} author`}>{typedText}</div>;
+};
