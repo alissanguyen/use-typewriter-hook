@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Helmet } from "react-helmet-async";
+import Head from 'next/head';
 
 interface Props {
 
@@ -7,7 +7,7 @@ interface Props {
 
 const SEOHead: React.FC<Props> = ({ }) => {
     return (
-        <Helmet>
+        <Head>
             {/* SEO Meta Tags */}
             <title>useTypewriter Hook - React Typewriter Effect Library | Documentation</title>
             <meta name="description" content="A flexible React hook for creating beautiful typewriter effects. Features loop support, custom cursors, backspace effects, and more. Complete documentation with live examples." />
@@ -21,7 +21,7 @@ const SEOHead: React.FC<Props> = ({ }) => {
             <meta property="og:type" content="website" />
             <meta property="og:title" content="useTypewriter Hook - React Typewriter Effect Library" />
             <meta property="og:description" content="A flexible React hook for creating beautiful typewriter effects with loop support, custom cursors, and backspace effects." />
-            <meta property="og:image" content="https://imgur.com/eLCGEyy.png" />
+            <meta property="og:image" content="https://i.imgur.com/eLCGEyy.png" />
             <meta property="og:image:width" content="1200" />
             <meta property="og:image:height" content="630" />
             <meta property="og:image:alt" content="useTypewriter Hook - React Typewriter Effect Library Documentation" />
@@ -33,7 +33,7 @@ const SEOHead: React.FC<Props> = ({ }) => {
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content="useTypewriter Hook - React Typewriter Effect Library" />
             <meta name="twitter:description" content="A flexible React hook for creating beautiful typewriter effects with loop support, custom cursors, and backspace effects." />
-            <meta name="twitter:image" content="https://imgur.com/eLCGEyy.png" />
+            <meta name="twitter:image" content="https://i.imgur.com/eLCGEyy.png" />
             <meta name="twitter:image:alt" content="useTypewriter Hook - React Typewriter Effect Library Documentation" />
 
             {/* Viewport and Mobile */}
@@ -46,7 +46,7 @@ const SEOHead: React.FC<Props> = ({ }) => {
             {/* Preconnect for Performance */}
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        </Helmet>
+        </Head>
     )
 }
 
